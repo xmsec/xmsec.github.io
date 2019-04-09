@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="GIT上个人静态博客安装—— evalsafe groupoctopress在GIT上的安装，根据视频演示，整理文字内容如下。  更新后注明： 1. 需要搭建平台环境，并且修改部分http地址 （2015.11.22更新Ruby镜像地址，因http镜像关闭；增加部分流程）  环境搭建：Git、Ruby、DevKit、MarkdownPad 2. ruby 环境问题，可能会遇到问题，提供其他方案">
+<meta name="keywords" content="Blog,Octopress">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Use Octopress">
+<meta property="og:url" content="http://blog.xmsec.cc/blog/2015/10/02/Use-Ocopress/index.html">
+<meta property="og:site_name" content="xmsec - 陌小生">
+<meta property="og:description" content="GIT上个人静态博客安装—— evalsafe groupoctopress在GIT上的安装，根据视频演示，整理文字内容如下。  更新后注明： 1. 需要搭建平台环境，并且修改部分http地址 （2015.11.22更新Ruby镜像地址，因http镜像关闭；增加部分流程）  环境搭建：Git、Ruby、DevKit、MarkdownPad 2. ruby 环境问题，可能会遇到问题，提供其他方案">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2016-09-15T12:49:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Use Octopress">
+<meta name="twitter:description" content="GIT上个人静态博客安装—— evalsafe groupoctopress在GIT上的安装，根据视频演示，整理文字内容如下。  更新后注明： 1. 需要搭建平台环境，并且修改部分http地址 （2015.11.22更新Ruby镜像地址，因http镜像关闭；增加部分流程）  环境搭建：Git、Ruby、DevKit、MarkdownPad 2. ruby 环境问题，可能会遇到问题，提供其他方案">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="xmsec - 陌小生" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://blog.xmsec.cc/blog/2015/10/02/Use-Ocopress/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Use Octopress | xmsec - 陌小生</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xmsec - 陌小生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stories and ideas we share. Security and Developing we focus.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.xmsec.cc/blog/2015/10/02/Use-Ocopress/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xmsec">
+      <meta itemprop="description" content="Stories and ideas we share. Security and Developing we focus.">
+      <meta itemprop="image" content="https://www.xmsec.cc/assets/img/user-image.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xmsec - 陌小生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Use Octopress
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-10-02 22:12:23" itemprop="dateCreated datePublished" datetime="2015-10-02T22:12:23+08:00">2015-10-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-09-15 20:49:52" itemprop="dateModified" datetime="2016-09-15T20:49:52+08:00">2016-09-15</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="GIT上个人静态博客安装"><a href="#GIT上个人静态博客安装" class="headerlink" title="GIT上个人静态博客安装"></a>GIT上个人静态博客安装</h3><h4 id="——-evalsafe-group"><a href="#——-evalsafe-group" class="headerlink" title="—— evalsafe group"></a>—— evalsafe group</h4><p>octopress在GIT上的安装，根据视频演示，整理文字内容如下。</p>
+<p> 更新后注明：</p>
+<p><strong>1.</strong><br> 需要搭建平台环境，并且修改部分http地址</p>
+<pre><code>（2015.11.22更新Ruby镜像地址，因http镜像关闭；增加部分流程）
+
+环境搭建：Git、Ruby、DevKit、MarkdownPad
+</code></pre><p><strong>2.</strong> ruby 环境问题，可能会遇到问题，提供其他方案</p>
+<ul>
+<li>Git：版本管理工具，将代码托管到 GitHub</li>
+<li>Ruby + DevKit：生成静态网页</li>
+<li><p>MarkdownPad：Windows 下 Markdown 语法编辑器</p>
+<p> 1.Git config –global user.name “”<br> 2.Git config –global user.email  “”<br> 3.C：user目录下.ssh  使用bash  ssh-keygen –t rsa –C “email”  回车<br> 4.密码可以不用输入。文件生成为pub公钥内容提交到git的settings，ssh keys  Add 新的，加入key<br> 5.bash ssh –T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>  @again<br> 6.Ruby:Path  Add to Path! &amp; bash  ruby dk.rb init   生成 yml文件<br> 7.Yml文件存有 ruby path<br> 8.Bash buby dk.rb install<br> 9.Octopress 克隆</p>
+</li>
+</ul>
+<ul>
+<li><p>克隆 Octopress 至本地</p>
+<p>  git clone git://github.com/imathis/octopress.git octopress</p>
+</li>
+<li><p>安装依赖项</p>
+<p>  gem sources –a <a href="https://ruby.taobao.org" target="_blank" rel="noopener">https://ruby.taobao.org</a><br>  gem sources –r <a href="http://rubygems.org" target="_blank" rel="noopener">http://rubygems.org</a><br>  gem sources –r <a href="https://rubygems.org" target="_blank" rel="noopener">https://rubygems.org</a></p>
+<p>  vi Gemfile VIM  press i</p>
+<p>  gem install bundler<br>  bundle install<br>  安装依赖项时需要注意</p>
+</li>
+<li><p>安装并使用默认主题</p>
+<p>  rake install<br>  1.bash rake generate   rake preview<br>  2.文件夹Sources  include  head.html  google libs.baidu.com/jquery</p>
+</li>
+<li><p>新建博客</p>
+<p>  rake new_post[“title”]</p>
+</li>
+<li><p>新建单页面</p>
+<p>  rake new_page[jikexueyuan]<br>  // creates /source/jikexueyuan/index.markdown</p>
+<p>  rake new_page[jikexueyuan/page.html]<br>  // creates /source/jikexueyuan/page.html</p>
+</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>1.工具<br>    MarkdownPad、记事本、Vim、Emacs……<br>引用</p>
+<pre><code>   - 列表、
+   * 加粗、
+  []()  超链接、
+  !{}() 图片、
+   ｛% video http 640 320 %}　视频、
+···
+code
+···
+</code></pre></blockquote>
+<ul>
+<li><p>新建仓库</p>
+<p>  username.github.io</p>
+</li>
+</ul>
+<ul>
+<li><p>与本地 Octopress 目录绑定</p>
+<p>  rake setup_github_pages   输入第一种URL<br>  rake deploy（rake deploy可能会遇到错误，可使用git windows 同步）</p>
+</li>
+<li><p>将 source 目录更新到远程仓库</p>
+<p>  git add .<br>  git commit -m ‘your message’<br>  git push origin source</p>
+</li>
+</ul>
+<h2 id="博客的自定义配置"><a href="#博客的自定义配置" class="headerlink" title="博客的自定义配置"></a>博客的自定义配置</h2><ul>
+<li><p>主配置文件</p>
+<p>在 _config.yml 文件中，设置 url、title、author 等基本信息</p>
+</li>
+<li><p>主题安装</p>
+<p>  1.到 GitHub 上找主题文件</p>
+<p>  2.安装主题<br>  rake install[‘themename’]</p>
+<p>  3.重新生成<br>  rake generate<br><strong>安装主题会清除原有的配置</strong></p>
+</li>
+<li><p>增加评论功能</p>
+<p>  使用多说插件 <a href="http://duoshuo.com/" title="http://duoshuo.com/" target="_blank" rel="noopener">http://duoshuo.com/</a></p>
+</li>
+</ul>
+<p>注：<br>1.bash表示bash提示符下<br>2.请结合google使用，本文只提供参考</p>
+<p>xmsec</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>xmsec</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.xmsec.cc/blog/2015/10/02/Use-Ocopress/" title="Use Octopress">http://blog.xmsec.cc/blog/2015/10/02/Use-Ocopress/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Blog/" rel="tag"># Blog</a>
+          
+            <a href="/tags/Octopress/" rel="tag"># Octopress</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2015/09/16/welcome-to-xmsec/" rel="next" title="Welcome to xmsec">
+                <i class="fa fa-chevron-left"></i> Welcome to xmsec
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2015/10/10/ZIP-pkcrack/" rel="prev" title="ZIP crack">
+                ZIP crack <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://www.xmsec.cc/assets/img/user-image.png" alt="xmsec">
+            
+              <p class="site-author-name" itemprop="name">xmsec</p>
+              <div class="site-description motion-element" itemprop="description">Stories and ideas we share. Security and Developing we focus.</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT上个人静态博客安装"><span class="nav-number">1.</span> <span class="nav-text">GIT上个人静态博客安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#——-evalsafe-group"><span class="nav-number">1.1.</span> <span class="nav-text">—— evalsafe group</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#博客的自定义配置"><span class="nav-number"></span> <span class="nav-text">博客的自定义配置</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xmsec</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

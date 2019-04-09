@@ -18,8 +18,8 @@
   
   <entry>
     <title>博客已暂时转移</title>
-    <link href="http://blog.xmsec.cc//posts/blog-temporary-removed/"/>
-    <id>http://blog.xmsec.cc//posts/blog-temporary-removed/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/09/10/blog-temporary-removed/"/>
+    <id>http://blog.xmsec.cc//blog/2016/09/10/blog-temporary-removed/</id>
     <published>2016-09-10T12:05:08.000Z</published>
     <updated>2019-04-09T12:09:31.562Z</updated>
     
@@ -42,8 +42,8 @@
   
   <entry>
     <title>base64中文、与佛论禅编码</title>
-    <link href="http://blog.xmsec.cc//posts/base64%E4%B8%AD%E6%96%87%E3%80%81%E4%B8%8E%E4%BD%9B%E8%AE%BA%E7%A6%85%E7%BC%96%E7%A0%81/"/>
-    <id>http://blog.xmsec.cc//posts/base64中文、与佛论禅编码/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/07/19/base64%E4%B8%AD%E6%96%87%E3%80%81%E4%B8%8E%E4%BD%9B%E8%AE%BA%E7%A6%85%E7%BC%96%E7%A0%81/"/>
+    <id>http://blog.xmsec.cc//blog/2016/07/19/base64中文、与佛论禅编码/</id>
     <published>2016-07-19T12:05:08.000Z</published>
     <updated>2016-08-21T04:07:36.000Z</updated>
     
@@ -64,8 +64,8 @@
   
   <entry>
     <title>ZIP伪加密</title>
-    <link href="http://blog.xmsec.cc//posts/ZIP%E4%BC%AA%E5%8A%A0%E5%AF%86/"/>
-    <id>http://blog.xmsec.cc//posts/ZIP伪加密/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/06/27/ZIP%E4%BC%AA%E5%8A%A0%E5%AF%86/"/>
+    <id>http://blog.xmsec.cc//blog/2016/06/27/ZIP伪加密/</id>
     <published>2016-06-27T12:05:00.000Z</published>
     <updated>2016-09-25T07:09:14.000Z</updated>
     
@@ -88,8 +88,8 @@
   
   <entry>
     <title>CTF图片隐写术总结</title>
-    <link href="http://blog.xmsec.cc//posts/CTF%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
-    <id>http://blog.xmsec.cc//posts/CTF图片隐写术总结/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/06/23/CTF%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.xmsec.cc//blog/2016/06/23/CTF图片隐写术总结/</id>
     <published>2016-06-23T04:12:23.000Z</published>
     <updated>2016-07-09T15:52:58.000Z</updated>
     
@@ -112,8 +112,8 @@
   
   <entry>
     <title>Hexo下FireBase访问统计</title>
-    <link href="http://blog.xmsec.cc//posts/Hexo%E4%B8%8BFireBase%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1/"/>
-    <id>http://blog.xmsec.cc//posts/Hexo下FireBase访问统计/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/03/15/Hexo%E4%B8%8BFireBase%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1/"/>
+    <id>http://blog.xmsec.cc//blog/2016/03/15/Hexo下FireBase访问统计/</id>
     <published>2016-03-15T04:12:23.000Z</published>
     <updated>2016-03-27T14:07:52.000Z</updated>
     
@@ -136,8 +136,8 @@
   
   <entry>
     <title>在github上搭建Hexo Blog</title>
-    <link href="http://blog.xmsec.cc//posts/Hexo-Blog/"/>
-    <id>http://blog.xmsec.cc//posts/Hexo-Blog/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/03/06/Hexo-Blog/"/>
+    <id>http://blog.xmsec.cc//blog/2016/03/06/Hexo-Blog/</id>
     <published>2016-03-06T04:12:23.000Z</published>
     <updated>2016-03-13T12:50:24.000Z</updated>
     
@@ -160,8 +160,8 @@
   
   <entry>
     <title>Instructions of Physics Bird</title>
-    <link href="http://blog.xmsec.cc//posts/Instructions-of-Physics-Bird/"/>
-    <id>http://blog.xmsec.cc//posts/Instructions-of-Physics-Bird/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/02/05/Instructions-of-Physics-Bird/"/>
+    <id>http://blog.xmsec.cc//blog/2016/02/05/Instructions-of-Physics-Bird/</id>
     <published>2016-02-05T04:12:00.000Z</published>
     <updated>2016-08-20T04:05:22.000Z</updated>
     
@@ -180,8 +180,8 @@
   
   <entry>
     <title>物理实燕APP 2.6</title>
-    <link href="http://blog.xmsec.cc//posts/Physics-Bird/"/>
-    <id>http://blog.xmsec.cc//posts/Physics-Bird/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/02/04/Physics-Bird/"/>
+    <id>http://blog.xmsec.cc//blog/2016/02/04/Physics-Bird/</id>
     <published>2016-02-04T04:12:00.000Z</published>
     <updated>2019-04-09T12:09:11.256Z</updated>
     
@@ -212,8 +212,8 @@
   
   <entry>
     <title>Material Design libs ‘colection’ </title>
-    <link href="http://blog.xmsec.cc//posts/Material-Design/"/>
-    <id>http://blog.xmsec.cc//posts/Material-Design/</id>
+    <link href="http://blog.xmsec.cc//blog/2016/01/28/Material-Design/"/>
+    <id>http://blog.xmsec.cc//blog/2016/01/28/Material-Design/</id>
     <published>2016-01-28T04:12:23.000Z</published>
     <updated>2016-09-25T07:15:34.000Z</updated>
     
@@ -236,8 +236,8 @@
   
   <entry>
     <title>ZIP crack</title>
-    <link href="http://blog.xmsec.cc//posts/ZIP-pkcrack/"/>
-    <id>http://blog.xmsec.cc//posts/ZIP-pkcrack/</id>
+    <link href="http://blog.xmsec.cc//blog/2015/10/10/ZIP-pkcrack/"/>
+    <id>http://blog.xmsec.cc//blog/2015/10/10/ZIP-pkcrack/</id>
     <published>2015-10-10T14:12:00.000Z</published>
     <updated>2016-08-20T04:07:00.000Z</updated>
     
@@ -283,8 +283,8 @@
   
   <entry>
     <title>Use Octopress</title>
-    <link href="http://blog.xmsec.cc//posts/Use-Ocopress/"/>
-    <id>http://blog.xmsec.cc//posts/Use-Ocopress/</id>
+    <link href="http://blog.xmsec.cc//blog/2015/10/02/Use-Ocopress/"/>
+    <id>http://blog.xmsec.cc//blog/2015/10/02/Use-Ocopress/</id>
     <published>2015-10-02T14:12:23.000Z</published>
     <updated>2016-09-15T12:49:52.000Z</updated>
     
@@ -338,8 +338,8 @@
   
   <entry>
     <title>Welcome to xmsec</title>
-    <link href="http://blog.xmsec.cc//posts/welcome-to-xmsec/"/>
-    <id>http://blog.xmsec.cc//posts/welcome-to-xmsec/</id>
+    <link href="http://blog.xmsec.cc//blog/2015/09/16/welcome-to-xmsec/"/>
+    <id>http://blog.xmsec.cc//blog/2015/09/16/welcome-to-xmsec/</id>
     <published>2015-09-16T14:12:23.000Z</published>
     <updated>2016-03-03T13:01:40.000Z</updated>
     
