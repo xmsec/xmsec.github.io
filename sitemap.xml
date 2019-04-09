@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.xmsec.cc/tags/index.html</loc>
+    <loc>http://blog.xmsec.cc/posts/blog-temporary-removed/</loc>
     
-    <lastmod>2019-04-09T11:54:13.780Z</lastmod>
+    <lastmod>2019-04-09T12:09:31.562Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.xmsec.cc/posts/Physics-Bird/</loc>
     
-    <lastmod>2016-12-26T10:27:12.000Z</lastmod>
+    <lastmod>2019-04-09T12:09:11.256Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.xmsec.cc/tags/index.html</loc>
+    
+    <lastmod>2019-04-09T11:54:13.780Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://blog.xmsec.cc/posts/ZIP%E4%BC%AA%E5%8A%A0%E5%AF%86/</loc>
     
     <lastmod>2016-09-25T07:09:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.xmsec.cc/posts/blog-temporary-removed/</loc>
-    
-    <lastmod>2016-09-24T15:44:28.000Z</lastmod>
     
   </url>
   
