@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>xmsec - 陌小生</title>
+  
+  <subtitle>Stories and ideas we share. Security and Developing we focus.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.xmsec.cc/"/>
+  <updated>2016-09-24T15:44:28.000Z</updated>
+  <id>http://blog.xmsec.cc/</id>
+  
+  <author>
+    <name>xmsec</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客已暂时转移</title>
+    <link href="http://blog.xmsec.cc//posts/blog-temporary-removed/"/>
+    <id>http://blog.xmsec.cc//posts/blog-temporary-removed/</id>
+    <published>2016-09-10T12:05:08.000Z</published>
+    <updated>2016-09-24T15:44:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>博客已暂时转移至<a href="http://www.xmsec.cc/" target="_blank" rel="noopener">www.xmsec.cc</a><br>暂不发布新博文，只进行更新。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;博客已暂时转移至&lt;a href=&quot;http://www.xmsec.cc/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;www.xmsec.cc&lt;/a&gt;&lt;br&gt;暂不发布新博文，只进行更新。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://blog.xmsec.cc/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>base64中文、与佛论禅编码</title>
+    <link href="http://blog.xmsec.cc//posts/base64%E4%B8%AD%E6%96%87%E3%80%81%E4%B8%8E%E4%BD%9B%E8%AE%BA%E7%A6%85%E7%BC%96%E7%A0%81/"/>
+    <id>http://blog.xmsec.cc//posts/base64中文、与佛论禅编码/</id>
+    <published>2016-07-19T12:05:08.000Z</published>
+    <updated>2016-08-21T04:07:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h3><p>base64在对中文进行编码和解码时容易出现乱码的问题，从而可能失去base64编码这种思路，经过查找，在 <a href="http://www.mxcz.net/tools/base64.aspx" target="_blank" rel="noopener">http://www.mxcz.net/tools/base64.aspx</a> 中勾选GB2312即可正常解码。<br><a id="more"></a></p><h3 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h3><p>与佛论禅编码。在做杂项题时遇到了一个奇怪的编码方式，经过编码得到佛经的内容，类似于无密码加密后用汉字替换字母。<br>比如下面这个base64<br><code>vKrrYLDjvuOwosFQyc++48bFv+C237VLyfHKx77jtcPSucrA0q7SucTFxfPWtsTHyd2/4MTFytKw48ndtcO+ucSmyeHapLyqyd3i8sndwv7WtsrH8Ku17snd1dqMkcnd5rbAj8P32qSc57nK1FjE4cFQsKLWts+k2aTSt9aUuvTU0NaU2qTT0Na2yarExepBwM+12Ly08Kv8Ttqktci12LrI2qS8tMXz1k+1ucTFxPnAz7LAhaLZpMCPoHE=</code><br>经过解码得到<br><code>吉隸般俱阿罰上俱婆苦哆礙神是俱得夜世耶夜呐朋侄那奢苦呐室般奢得竟摩舍冥吉奢怛奢漫侄是皤殿奢遮寫奢娑缽明冥滅故訶尼罰阿侄悉伽曳謹呼孕謹冥有侄瑟呐闍老地即皤麼冥等地喝冥即朋諳倒呐涅老怖參伽缽爍</code><br>revese之后与佛论禅解码就可以得到结果。<a href="http://www.ptxz.com/fo/" target="_blank" rel="noopener">http://www.ptxz.com/fo/</a>  </p><h3 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h3><p>本文来自某个CTF题目以及WP，给出链接。<br><a href="http://www.shiyanbar.com/ctf/1836" target="_blank" rel="noopener">参考题目</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0x00&quot;&gt;&lt;a href=&quot;#0x00&quot; class=&quot;headerlink&quot; title=&quot;0x00&quot;&gt;&lt;/a&gt;0x00&lt;/h3&gt;&lt;p&gt;base64在对中文进行编码和解码时容易出现乱码的问题，从而可能失去base64编码这种思路，经过查找，在 &lt;a href=&quot;http://www.mxcz.net/tools/base64.aspx&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.mxcz.net/tools/base64.aspx&lt;/a&gt; 中勾选GB2312即可正常解码。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="CTF" scheme="http://blog.xmsec.cc/tags/CTF/"/>
+    
+      <category term="MISC" scheme="http://blog.xmsec.cc/tags/MISC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ZIP伪加密</title>
+    <link href="http://blog.xmsec.cc//posts/ZIP%E4%BC%AA%E5%8A%A0%E5%AF%86/"/>
+    <id>http://blog.xmsec.cc//posts/ZIP伪加密/</id>
+    <published>2016-06-27T12:05:00.000Z</published>
+    <updated>2016-09-25T07:09:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>最近遇到了一个颇有意思的题目，内容涉及图片隐写和ZIP伪加密。接下来主要分享关于zip伪加密的一些内容。</p><a id="more"></a><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>ZIP伪加密是在文件头的加密标志位做修改，进而再打开文件时识别为加密压缩包。<br>在参考了网上多数文章无果后，在西普的一个小题找到了可以复现的方法。<br>给出某个示例：</p><pre><code>压缩源文件数据区 50 4B 03 04：这是头文件标记（0x04034b50）14 00：解压文件所需 pkware 版本 00 00：全局方式位标记（有无加密） 08 00：压缩方式 5A 7E：最后修改文件时间 F7 46：最后修改文件日期 16 B5 80 14：CRC-32校验（1480B516）19 00 00 00：压缩后尺寸（25）17 00 00 00：未压缩尺寸（23）07 00：文件名长度 00 00：扩展记录长度 6B65792E7478740BCECC750E71ABCE48CDC9C95728CECC2DC849AD284DAD0500  压缩源文件目录区 50 4B 01 02：目录中文件文件头标记(0x02014b50)  3F 00：压缩使用的 pkware 版本 14 00：解压文件所需 pkware 版本 00 00：全局方式位标记（有无加密，这个更改这里进行伪加密，改为09 00打开就会提示有密码了） 08 00：压缩方式 5A 7E：最后修改文件时间 F7 46：最后修改文件日期 16 B5 80 14：CRC-32校验（1480B516）19 00 00 00：压缩后尺寸（25）17 00 00 00：未压缩尺寸（23）07 00：文件名长度 24 00：扩展字段长度 00 00：文件注释长度 00 00：磁盘开始号 00 00：内部文件属性 20 00 00 00：外部文件属性 00 00 00 00：局部头部偏移量 6B65792E7478740A00200000000000010018006558F04A1CC5D001BDEBDD3B1CC5D001BDEBDD3B1CC5D001  压缩源文件目录结束标志 50 4B 05 06：目录结束标记 00 00：当前磁盘编号 00 00：目录区开始磁盘编号 01 00：本磁盘上纪录总数 01 00：目录区中纪录总数 59 00 00 00：目录区尺寸大小 3E 00 00 00：目录区对第一张磁盘的偏移量 00 00：ZIP 文件注释长度</code></pre><p>可注意到第二个加密标志位，0000改为0900便会出现伪加密。</p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>实测例子（仅压缩一个1.txt）如图：</p><p><img src="http://7xrl82.com1.z0.glb.clouddn.com/16062712.jpg" alt></p><p>可在第三行最后发现 0008 与开始的 0008 对应。<br>将 0008 改为 0908 再解压时需要输入密码。<br>改为原状则不需要输入密码。</p><p>参考题目：</p><p>1.<a href="http://www.shiyanbar.com/ctf/716" title="实验吧" target="_blank" rel="noopener">实验吧</a><br>2.<a href="http://www.secpulse.com/archives/2926.html" title="RCTF MISC200" target="_blank" rel="noopener">RCTF MISC200</a><br>3.<a href="http://www.2cto.com/Article/201609/550122.html" target="_blank" rel="noopener">2016京津冀网络安全技能赛 MISC</a></p><p><strong>xmsec</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简述&quot;&gt;&lt;a href=&quot;#简述&quot; class=&quot;headerlink&quot; title=&quot;简述&quot;&gt;&lt;/a&gt;简述&lt;/h2&gt;&lt;p&gt;最近遇到了一个颇有意思的题目，内容涉及图片隐写和ZIP伪加密。接下来主要分享关于zip伪加密的一些内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="CTF" scheme="http://blog.xmsec.cc/tags/CTF/"/>
+    
+      <category term="隐写术" scheme="http://blog.xmsec.cc/tags/%E9%9A%90%E5%86%99%E6%9C%AF/"/>
+    
+      <category term="ZIP" scheme="http://blog.xmsec.cc/tags/ZIP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CTF图片隐写术总结</title>
+    <link href="http://blog.xmsec.cc//posts/CTF%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.xmsec.cc//posts/CTF图片隐写术总结/</id>
+    <published>2016-06-23T04:12:23.000Z</published>
+    <updated>2016-07-09T15:52:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>从接触隐写术到现在有一段时间了，也在乌云上见到了经典的分享，详见参考目录。个人感觉隐写术的趣味性很强，故总结一些关于图片隐写术的小姿势。（不断补充）</p><a id="more"></a><h3 id="常见图片"><a href="#常见图片" class="headerlink" title="常见图片"></a>常见图片</h3><ul><li>GIF<br>1.GIF文件头 GIF8<br>2.steggsolve.jar</li><li>JPG<br>JPEG 文件头 0xFFD8FF<br>结束 FFD9</li><li>PNG<br> PNG 文件头 0x89504E470D0A1A0A<br>1.LSB<br>2.pngcheck（IDAT）</li><li>二维码<br>qrcode解码<h3 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h3>工具：binwalk，foremost<br>截断数据<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3></li><li>exif<br>右键属性、Power_exif</li><li>LSB<br>工具：stegesolve.jar</li></ul><ol><li>直接出结果</li><li>二维码</li><li>复杂数据(编程处理)</li></ol><h3 id="编程辅助"><a href="#编程辅助" class="headerlink" title="编程辅助"></a>编程辅助</h3><p>工具：python</p><ul><li>LSB<br>puthon PIL</li><li>IDAT<br>winhex,pngcheck</li></ul><p>参考：</p><p>1.<a href="http://drops.wooyun.org/tips/4862" title="http://drops.wooyun.org/tips/4862" target="_blank" rel="noopener">隐写术总结</a></p><p>2.<a href="http://www.shiyanbar.com/ctf/practice" title="http://www.shiyanbar.com/ctf/practice" target="_blank" rel="noopener">西普实验吧</a></p><p><strong>xmsec</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简述&quot;&gt;&lt;a href=&quot;#简述&quot; class=&quot;headerlink&quot; title=&quot;简述&quot;&gt;&lt;/a&gt;简述&lt;/h2&gt;&lt;p&gt;从接触隐写术到现在有一段时间了，也在乌云上见到了经典的分享，详见参考目录。个人感觉隐写术的趣味性很强，故总结一些关于图片隐写术的小姿势。（不断补充）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="CTF" scheme="http://blog.xmsec.cc/tags/CTF/"/>
+    
+      <category term="隐写术" scheme="http://blog.xmsec.cc/tags/%E9%9A%90%E5%86%99%E6%9C%AF/"/>
+    
+      <category term="misc" scheme="http://blog.xmsec.cc/tags/misc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo下FireBase访问统计</title>
+    <link href="http://blog.xmsec.cc//posts/Hexo%E4%B8%8BFireBase%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1/"/>
+    <id>http://blog.xmsec.cc//posts/Hexo下FireBase访问统计/</id>
+    <published>2016-03-15T04:12:23.000Z</published>
+    <updated>2016-03-27T14:07:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>各路大牛已经写了不少教程，也就不在这里多废话了。<br>可以参考以下文章：</p><p>1.<a href="http://www.pangjian.info/2015/02/27/realtime-count-firebase/" target="_blank" rel="noopener">http://www.pangjian.info/2015/02/27/realtime-count-firebase/</a><br>2.<a href="http://ibruce.info/2013/12/22/count-views-of-hexo/" target="_blank" rel="noopener">http://ibruce.info/2013/12/22/count-views-of-hexo/</a></p><p>在这里，对可能比较难操作的几点进行说明。<br><a id="more"></a></p><ul><li>给出七牛的js</li></ul><p><code>&lt;script src=&quot;//buru.u.qiniudn.com/firebase-2.0.5.js&quot;&gt;&lt;/script&gt;</code></p><ul><li>在页面footer增加记录条目</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;footer id=&quot;footer&quot;&gt;</span><br><span class="line">  &lt;% if (theme.sidebar === &apos;bottom&apos;)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(&apos;_partial/sidebar&apos;) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">  &lt;div class=&quot;outer&quot;&gt;</span><br><span class="line">    &lt;div id=&quot;footer-info&quot; class=&quot;inner&quot;&gt;</span><br><span class="line">      &amp;copy; &lt;%= date(new Date(), &apos;YYYY&apos;) %&gt; &lt;%= config.author || config.title %&gt;&lt;br&gt;</span><br><span class="line">      Powered by &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot;&gt;Hexo&lt;/a&gt;</span><br><span class="line">      .</span><br><span class="line">      &lt;font id=&quot;sum_counter&quot;&gt;&lt;/font&gt;</span><br><span class="line">      &lt;font id=&quot;detail_counter&quot;&gt;&lt;/font&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/footer&gt;</span><br></pre></td></tr></table></figure><p>注意添加font id 行</p><ul><li><p>js代码写法</p><p>  js代码可以写在footer中。<br>  给出一个footer.ejs示例。<br><a href="http://7xi4vv.com1.z0.glb.clouddn.com/footer.ejs" target="_blank" rel="noopener">点击下载</a></p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;copyright&quot;&gt;</span><br><span class="line">  &lt;% if (config.author)&#123; %&gt;</span><br><span class="line">  &amp;copy; &lt;%= new Date().getFullYear() %&gt; &lt;a href=&quot;&lt;%- config.root %&gt;&quot;&gt;&lt;%= config.author %&gt;&lt;/a&gt;</span><br><span class="line">  &lt;% &#125; else &#123; %&gt;</span><br><span class="line">  &amp;copy; &lt;%= new Date().getFullYear() %&gt; &lt;a href=&quot;&lt;%- config.root %&gt;&quot;&gt;&lt;%= config.title %&gt;&lt;/a&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;theme-copyright&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=&quot;http://example.net/&quot; target=&quot;_blank&quot;&gt;论坛&lt;/a&gt;</span><br><span class="line">   |</span><br><span class="line">  &lt;font id=&quot;sum_counter&quot;&gt;&lt;/font&gt;</span><br><span class="line">  &lt;font id=&quot;detail_counter&quot;&gt;&lt;/font&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;script src=&apos;https://cdn.firebase.com/js/client/2.2.1/firebase.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var myDataRef = new Firebase(&apos;https://yourapp.firebaseio.com/&apos;)</span><br><span class="line">// 明细由当前页面的url表示，将反斜线替换成下划线，并将中文decode出来</span><br><span class="line">var current_url = decodeURI(window.location.pathname.replace(new RegExp(&apos;\\/|\\.&apos;, &apos;g&apos;),&quot;_&quot;));</span><br><span class="line">// 获取总数，并将总访问量展示在页面上</span><br><span class="line">myDataRef.child(&quot;sum&quot;).on(&quot;value&quot;, function(data) &#123;</span><br><span class="line">  var current_counter = data.val();</span><br><span class="line">  if( $(&quot;#sum_counter&quot;).length &gt; 0  &amp;&amp; current_counter &gt;1 )&#123;</span><br><span class="line">      $(&quot;#sum_counter&quot;).html(</span><br><span class="line">      &quot; | 总访问量 &lt;font style=&apos;color:white&apos;&gt;&quot;+ current_counter +&quot;&lt;/font&gt; 次&quot;</span><br><span class="line">       );</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line">// 获取明细，并将明细也展示在页面上</span><br><span class="line">myDataRef.child(&quot;detail/&quot;+current_url).on(&quot;value&quot;, function(data)&#123;</span><br><span class="line">var detail_counter = data.val();</span><br><span class="line">if($(&quot;#detail_counter&quot;).length &gt; 0 &amp;&amp; detail_counter &gt; 1)&#123;</span><br><span class="line">$(&quot;#detail_counter&quot;).html(</span><br><span class="line">&quot; 本页访问量 &lt;font style=&apos;color:white&apos;&gt;&quot;+ detail_counter +&quot;&lt;/font&gt; 次&quot;</span><br><span class="line">);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">// 总数+1</span><br><span class="line">myDataRef.child(&quot;sum&quot;).transaction(function (current_counter) &#123;</span><br><span class="line">  return (current_counter || 0) + 1;</span><br><span class="line">&#125;);</span><br><span class="line">// 明细+1</span><br><span class="line">myDataRef.child(&quot;detail/&quot;+current_url).transaction(function (current_counter) &#123;</span><br><span class="line">  return (current_counter || 0) + 1;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><h3 id="cnzz统计"><a href="#cnzz统计" class="headerlink" title="cnzz统计"></a>cnzz统计</h3><p>@<a href="http://www.jianshu.com/p/739bf1305e66" target="_blank" rel="noopener">简书</a></p><p>做法是先注册账号，然后添加网址就设置好了。CNZZ作为例子说明一下。</p><p>1.在CNZZ网站注册一个账号，添加网站后，得到各个形式的代码，任选其一；</p><p>2.在Hexo\themes\jacman\layout_partial文件夹下新建一个cnzz_tongji.ejs文件，把你的代码粘贴在第一行和最后一行之间（中间是我的，替换成你自己的）；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.cnzz)&#123; %&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"> var cnzz_protocol = ((&quot;https:&quot; == document.location.protocol) ? &quot; https://&quot; : &quot; http://&quot;);</span><br><span class="line"> document.write(unescape(&quot;%3Cspan id=&apos;cnzz_stat_icon_1256211004&apos;%3E%3C/span%3E%3Cscript src=&apos;&quot; + cnzz_protocol + &quot;s95.cnzz.com/z_stat.php%3Fid%3D1256211004%26show%3Dpic&apos; type=&apos;text/javascript&apos;%3E%3C/script%3E&quot;));</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p><p>3.在footer.ejs文件中适当的位置添加你的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var cnzz_protocol = ((&quot;https:&quot; == document.location.protocol) ? &quot; https://&quot; : &quot; [http://&quot;);](http://&quot;);)</span><br><span class="line">    document.write(unescape(&quot;%3Cspan id=&apos;cnzz_stat_icon_1256211004&apos;%3E%3C/span%3E%3Cscript src=&apos;&quot; + cnzz_protocol + &quot;s95.cnzz.com/z_stat.php%3Fid%3D1256211004%26show%3Dpic&apos; type=&apos;text/javascript&apos;%3E%3C/script%3E&quot;));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p><p>4.在主题配置文件中加入下面代码启用CNZZ统计，注意不要添加站点id，填了的话就不显示图标了。</p><pre><code>## Analyticscnzz_tongji: true</code></pre><p><strong>xmsec</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h3&gt;&lt;p&gt;各路大牛已经写了不少教程，也就不在这里多废话了。&lt;br&gt;可以参考以下文章：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href=&quot;http://www.pangjian.info/2015/02/27/realtime-count-firebase/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.pangjian.info/2015/02/27/realtime-count-firebase/&lt;/a&gt;&lt;br&gt;2.&lt;a href=&quot;http://ibruce.info/2013/12/22/count-views-of-hexo/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://ibruce.info/2013/12/22/count-views-of-hexo/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在这里，对可能比较难操作的几点进行说明。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Blog" scheme="http://blog.xmsec.cc/tags/Blog/"/>
+    
+      <category term="Hexo" scheme="http://blog.xmsec.cc/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在github上搭建Hexo Blog</title>
+    <link href="http://blog.xmsec.cc//posts/Hexo-Blog/"/>
+    <id>http://blog.xmsec.cc//posts/Hexo-Blog/</id>
+    <published>2016-03-06T04:12:23.000Z</published>
+    <updated>2016-03-13T12:50:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h3><p>主要过程请参考官方文档：<br><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/index.html</a></p><ul><li><p>基于本博客Octopress搭建过程给出迁移方法。</p><a id="more"></a><p>把 Octopress source/_posts 文件夹内的所有文件转移到 Hexo 的 source/_posts 文件夹，并修改 _config.yml 中的 new_post_name 参数。</p><p>new_post_name: :year-:month-:day-:title.md</p><p>注：octopress博文目录是在blog目录下，而hexo是在根目录下。如需调整为一致地址，_config.yml中更改permalink，在地址头部加入/blog/</p></li><li><p>sitemap站点地图</p></li></ul><p>1、安装插件：<br>    npm install hexo-generator-sitemap –save<br>    npm install hexo-generator-baidu-sitemap –save<br>2、在博客目录的_config.yml中添加如下代码：</p><pre><code>1. # 自动生成sitemap2. sitemap:3. path: sitemap.xml4. baidusitemap:5. path: baidusitemap.xml</code></pre><p>3、hexo编译的时候会自动在根目录生成站点地图</p><ul><li>中文乱码<br>  在文件中写中文内容，发布出来后为乱码，原因是编码不对，将文件另存为“UTF-8”编码的文件即可解决问题。</li></ul><p><strong>xmsec</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;搭建过程&quot;&gt;&lt;a href=&quot;#搭建过程&quot; class=&quot;headerlink&quot; title=&quot;搭建过程&quot;&gt;&lt;/a&gt;搭建过程&lt;/h3&gt;&lt;p&gt;主要过程请参考官方文档：&lt;br&gt;&lt;a href=&quot;https://hexo.io/zh-cn/docs/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://hexo.io/zh-cn/docs/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;基于本博客Octopress搭建过程给出迁移方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Blog" scheme="http://blog.xmsec.cc/tags/Blog/"/>
+    
+      <category term="Hexo" scheme="http://blog.xmsec.cc/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Instructions of Physics Bird</title>
+    <link href="http://blog.xmsec.cc//posts/Instructions-of-Physics-Bird/"/>
+    <id>http://blog.xmsec.cc//posts/Instructions-of-Physics-Bird/</id>
+    <published>2016-02-05T04:12:00.000Z</published>
+    <updated>2016-08-20T04:05:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Instructions-ver-2-0"><a href="#Instructions-ver-2-0" class="headerlink" title="Instructions    ver 2.0"></a>Instructions    ver 2.0</h2><h3 id="功能说明："><a href="#功能说明：" class="headerlink" title="功能说明："></a>功能说明：</h3><a id="more"></a><p>均值计算：</p><p><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-14-16-04.jpg?imageMogr2/thumbnail/!25p" alt><br>使用时输入数据个数，之后输入第一个数据，点击next，然后输入第二个数据，点击next……输入结束后，点击计算即可显示结果。<br><strong>计算结果在剔除坏值和不确定度中可直接使用</strong></p><p>剔除坏值：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-14-16-11.jpg?imageMogr2/thumbnail/!25p" alt><br>均值计算结束后，点击GO，即可进行剔除坏值。<br><strong>剔除坏值后原数据会改变，不确定度计算以剔除后的数据为准</strong><br>不确定度：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-14-16-21.jpg?imageMogr2/thumbnail/!25p" alt><br>第一步计算均值后，输入仪器不确定度Δm（无则填0）后点击OK。即可自动计算。<br><strong>不确定度计算默认使用第一步的计算结果，仅限于单个测量值的不确定度计算，不适用于间接不确定度计算</strong><br>线性回归：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-14-17-09.jpg?imageMogr2/thumbnail/!25p" alt><br>每输入一组x，y的值点击next，以此类推，最后点击计算。<br>关于界面：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-15-18-03.jpg?imageMogr2/thumbnail/!25p" alt><br>点击使用说明访问本界面。<br>点击反馈交流访问博客。</p><p><strong>xmsec</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Instructions-ver-2-0&quot;&gt;&lt;a href=&quot;#Instructions-ver-2-0&quot; class=&quot;headerlink&quot; title=&quot;Instructions    ver 2.0&quot;&gt;&lt;/a&gt;Instructions    ver 2.0&lt;/h2&gt;&lt;h3 id=&quot;功能说明：&quot;&gt;&lt;a href=&quot;#功能说明：&quot; class=&quot;headerlink&quot; title=&quot;功能说明：&quot;&gt;&lt;/a&gt;功能说明：&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://blog.xmsec.cc/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>物理实燕APP 2.6</title>
+    <link href="http://blog.xmsec.cc//posts/Physics-Bird/"/>
+    <id>http://blog.xmsec.cc//posts/Physics-Bird/</id>
+    <published>2016-02-04T04:12:00.000Z</published>
+    <updated>2016-12-26T10:27:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>PhysicsBird（物理实燕）APP为物理实验而生。于安卓、IOS平台开发。<br>作者为在校生，应用仍有不完备之处。<br>有任何建议或意见请在留言区交流~或微信：stranged</p><h2 id="Brief-Introduction"><a href="#Brief-Introduction" class="headerlink" title="Brief Introduction"></a>Brief Introduction</h2><ul><li>本应用是用以简化<strong>物理实验</strong>数据处理过程的应用，功能限于物理实验所需的数据处理，提供均值计算，坏值剔除，直接不确定度计算，线性回归计算功能。（虽然简化了计算，但也要记得公式怎么用哦~）</li><li>目前已经完成2.5版本，在多个安卓应用市场上架。</li><li>用户可在 360，91，应用宝，豌豆荚，魅族，乐商店，百度应用市场搜索“物理实燕”下载本APP。</li><li>IOS版本无上传App Store计划，已在github开源，需要在xcode下真机调试安装。（使用xcode7.3.1，swift开发）</li><li>安卓与苹果使用说明类似，以安卓端作为介绍的版本<a id="more"></a> </li><li>最近更新内容  <ol><li>2016.08 IOS端开发完成、支持安卓6.0、部分优化、版本开源</li><li>2016.12 支持安卓7.0、bug修复</li></ol></li></ul><h2 id="Instructions-——-How-to-use"><a href="#Instructions-——-How-to-use" class="headerlink" title="Instructions    —— How to use"></a>Instructions    —— How to use</h2><p>均值计算：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-14-16-04.jpg?imageMogr2/thumbnail/!25p" alt><br>使用时输入数据个数，之后输入第一个数据，点击next，然后输入第二个数据，点击next……输入结束后，点击计算即可显示结果。<br><strong>计算结果在剔除坏值和不确定度中可直接使用</strong><br>剔除坏值：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-14-16-11.jpg?imageMogr2/thumbnail/!25p" alt><br>均值计算结束后，点击GO，即可进行剔除坏值。<br><strong>剔除坏值后原数据会改变，不确定度计算以剔除后的数据为准</strong><br>不确定度：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-14-16-21.jpg?imageMogr2/thumbnail/!25p" alt><br>第一步计算均值后，输入仪器不确定度Δm（无则填0）后点击OK。即可自动计算。<br><strong>不确定度计算默认使用第一步的计算结果，仅限于单个测量值的不确定度计算，不适用于间接不确定度计算</strong><br>线性回归：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-14-17-09.jpg?imageMogr2/thumbnail/!25p" alt><br>每输入一组x，y的值点击next，以此类推，最后点击计算。<br>关于界面：<br><img src="http://7xrl82.com1.z0.glb.clouddn.com/physicsScreenshot_2016-02-18-15-18-03.jpg?imageMogr2/thumbnail/!25p" alt><br>点击使用说明访问博客。</p><h2 id="部分下载链接"><a href="#部分下载链接" class="headerlink" title="部分下载链接"></a>部分下载链接</h2><p>（微信请在浏览器打开）</p><p>360：<br><a href="http://zhushou.360.cn/detail/index/soft_id/3094340?recrefer=SE_D_%E7%89%A9%E7%90%86%E5%AE%9E%E7%87%95" target="_blank" rel="noopener">http://zhushou.360.cn/detail/index/soft_id/3094340</a><br>豌豆荚：<br><a href="http://www.wandoujia.com/apps/com.stranger.physicsbird" target="_blank" rel="noopener">http://www.wandoujia.com/apps/com.stranger.physicsbird</a><br>百度：<br><a href="http://shouji.baidu.com/software/10659314.html" target="_blank" rel="noopener">http://shouji.baidu.com/software/10659314.html</a><br>IOS github：<a href="https://github.com/xmsec/PhysicsBird-IOS" target="_blank" rel="noopener">https://github.com/xmsec/PhysicsBird-IOS</a></p><p><strong>反馈交流请留言~ 谢谢</strong></p><p><strong>xmsec</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PhysicsBird（物理实燕）APP为物理实验而生。于安卓、IOS平台开发。&lt;br&gt;作者为在校生，应用仍有不完备之处。&lt;br&gt;有任何建议或意见请在留言区交流~或微信：stranged&lt;/p&gt;
+&lt;h2 id=&quot;Brief-Introduction&quot;&gt;&lt;a href=&quot;#Brief-Introduction&quot; class=&quot;headerlink&quot; title=&quot;Brief Introduction&quot;&gt;&lt;/a&gt;Brief Introduction&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;本应用是用以简化&lt;strong&gt;物理实验&lt;/strong&gt;数据处理过程的应用，功能限于物理实验所需的数据处理，提供均值计算，坏值剔除，直接不确定度计算，线性回归计算功能。（虽然简化了计算，但也要记得公式怎么用哦~）&lt;/li&gt;
+&lt;li&gt;目前已经完成2.5版本，在多个安卓应用市场上架。&lt;/li&gt;
+&lt;li&gt;用户可在 360，91，应用宝，豌豆荚，魅族，乐商店，百度应用市场搜索“物理实燕”下载本APP。&lt;/li&gt;
+&lt;li&gt;IOS版本无上传App Store计划，已在github开源，需要在xcode下真机调试安装。（使用xcode7.3.1，swift开发）&lt;/li&gt;
+&lt;li&gt;安卓与苹果使用说明类似，以安卓端作为介绍的版本
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://blog.xmsec.cc/tags/Android/"/>
+    
+      <category term="Material Design" scheme="http://blog.xmsec.cc/tags/Material-Design/"/>
+    
+      <category term="IOS" scheme="http://blog.xmsec.cc/tags/IOS/"/>
+    
+      <category term="swift" scheme="http://blog.xmsec.cc/tags/swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Material Design libs ‘colection’ </title>
+    <link href="http://blog.xmsec.cc//posts/Material-Design/"/>
+    <id>http://blog.xmsec.cc//posts/Material-Design/</id>
+    <published>2016-01-28T04:12:23.000Z</published>
+    <updated>2016-09-25T07:15:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Material-Design-Libs-in-github-and-wiki"><a href="#Material-Design-Libs-in-github-and-wiki" class="headerlink" title="Material Design Libs in github and wiki"></a>Material Design Libs in github and wiki</h3><p><strong>介绍：</strong><br>Google I/O 2014 发布 Material Design，1sters 于 2014-09-09 上线中文版，并稳稳占据百度和 Google material design 关键字的第一名。<br>历时一年，官方已经新增 20+ 章节，我们再次发力，于「2015-08-16」翻译校对完毕所有新增章节，重新发布。</p><p>内容来源<br>官方英文文档：<br><a href="http://www.google.com/design/spec/material-design/" title="http://www.google.com/design/spec/material-design/" target="_blank" rel="noopener">http://www.google.com/design/spec/material-design/</a><br>中文版网站：<br><a href="http://wiki.jikexueyuan.com/project/material-design/" title="http://wiki.jikexueyuan.com/project/material-design/" target="_blank" rel="noopener">http://wiki.jikexueyuan.com/project/material-design/</a><br>中文版 GitHub 仓库：<br><a href="https://github.com/1sters/material_design_zh_2" title="https://github.com/1sters/material_design_zh_2" target="_blank" rel="noopener">https://github.com/1sters/material_design_zh_2</a></p><p><strong>Libs</strong><br><a href="https://github.com/navasmdc/MaterialDesignLibrary" title="MaterialDesignLibrary" target="_blank" rel="noopener">MaterialDesignLibrary</a><br><a href="https://github.com/rey5137/material" title="Material" target="_blank" rel="noopener">rey5137/material</a><br><a href="https://github.com/rengwuxian/MaterialEditText" title="MaterialEditText" target="_blank" rel="noopener">MaterialEditText</a><br><a href="https://github.com/neokree/MaterialTabs" title="MaterialTabs" target="_blank" rel="noopener">MaterialTabs</a><br><a href="https://github.com/florent37/MaterialViewPager" title="MaterialViewPager" target="_blank" rel="noopener">MaterialViewPager</a></p><a id="more"></a><p>Add.</p><p>以Github上最热门的MaterialDesign库，MaterialDesignLibrary来介绍怎样使用Android Sudio导入开源项目的，如果你刚刚从Eclipse转到AS，那下面的文章非常适合。<br><a href="http://www.mamicode.com/info-detail-1044624.html" target="_blank" rel="noopener">http://www.mamicode.com/info-detail-1044624.html</a></p><p><strong>xmsec</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Material-Design-Libs-in-github-and-wiki&quot;&gt;&lt;a href=&quot;#Material-Design-Libs-in-github-and-wiki&quot; class=&quot;headerlink&quot; title=&quot;Material Design Libs in github and wiki&quot;&gt;&lt;/a&gt;Material Design Libs in github and wiki&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;介绍：&lt;/strong&gt;&lt;br&gt;Google I/O 2014 发布 Material Design，1sters 于 2014-09-09 上线中文版，并稳稳占据百度和 Google material design 关键字的第一名。&lt;br&gt;历时一年，官方已经新增 20+ 章节，我们再次发力，于「2015-08-16」翻译校对完毕所有新增章节，重新发布。&lt;/p&gt;
+&lt;p&gt;内容来源&lt;br&gt;官方英文文档：&lt;br&gt;&lt;a href=&quot;http://www.google.com/design/spec/material-design/&quot; title=&quot;http://www.google.com/design/spec/material-design/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.google.com/design/spec/material-design/&lt;/a&gt;&lt;br&gt;中文版网站：&lt;br&gt;&lt;a href=&quot;http://wiki.jikexueyuan.com/project/material-design/&quot; title=&quot;http://wiki.jikexueyuan.com/project/material-design/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://wiki.jikexueyuan.com/project/material-design/&lt;/a&gt;&lt;br&gt;中文版 GitHub 仓库：&lt;br&gt;&lt;a href=&quot;https://github.com/1sters/material_design_zh_2&quot; title=&quot;https://github.com/1sters/material_design_zh_2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/1sters/material_design_zh_2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Libs&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/navasmdc/MaterialDesignLibrary&quot; title=&quot;MaterialDesignLibrary&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MaterialDesignLibrary&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/rey5137/material&quot; title=&quot;Material&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;rey5137/material&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/rengwuxian/MaterialEditText&quot; title=&quot;MaterialEditText&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MaterialEditText&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/neokree/MaterialTabs&quot; title=&quot;MaterialTabs&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MaterialTabs&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/florent37/MaterialViewPager&quot; title=&quot;MaterialViewPager&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MaterialViewPager&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://blog.xmsec.cc/tags/Android/"/>
+    
+      <category term="Material Design" scheme="http://blog.xmsec.cc/tags/Material-Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ZIP crack</title>
+    <link href="http://blog.xmsec.cc//posts/ZIP-pkcrack/"/>
+    <id>http://blog.xmsec.cc//posts/ZIP-pkcrack/</id>
+    <published>2015-10-10T14:12:00.000Z</published>
+    <updated>2016-08-20T04:07:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="ZIP密码破解——明文攻击"><a href="#ZIP密码破解——明文攻击" class="headerlink" title="ZIP密码破解——明文攻击"></a>ZIP密码破解——明文攻击</h3><h4 id="——-evalsafe-group"><a href="#——-evalsafe-group" class="headerlink" title="—— evalsafe group"></a>—— evalsafe group</h4><p><strong>介绍：</strong></p><p>随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。</p><blockquote><p>在介绍这三种方法之前，我先给大家介绍几个工具：</p><p>AZPR : <a href="http://www.elcomsoft.com" target="_blank" rel="noopener">http://www.elcomsoft.com</a></p><p>UZPC : <a href="http://www.chat.ru/~m53group" target="_blank" rel="noopener">http://www.chat.ru/~m53group</a></p><p>PKCrack : <a href="http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html" target="_blank" rel="noopener">http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html</a></p></blockquote><p>具体怎么使用，可以参照他们的文档，很详细。当然，你也可以通过搜索引擎选择其他的工具。</p><ul><li>第一步 </li></ul><pre><code>了解目标文件俗话说，知己知彼，百战不殆。在进行破解之前，全面了解加密的文件可以帮助我们获得很多有用的信息。比如，用WinRAR（windows）或者‘unzip -l’（linux）命令来?获取压缩包的目录结构，和它所包含的文件信息。你时刻要提醒自己注意&gt;的是，有没有可能知道某个加密文件的部分信息。比如说，一个简单的文本文件（readme.txt），或者通用的dll文件（VBXXX.dll、MFCXX.dll），或者是一个通用的.exe文件（SETUP.EXC）。尽可能的去发现任何你可能发现的东西，这一点非常重要。如果你得不到加密文件里的任何片段，那么很遗憾，你将无法使用明文攻击这一最有效的破解利器。</code></pre><p>破解的三种方法：</p><ul><li><p>暴力破解。这是最花时间的一种破解方式，除此之外你还能期待些什么？正如它的名字所表达的，暴力破解就是不断的去尝试所有可能的密码。如果密码比较短，或许在短时间内可以找到正确的密码。但是如果比较长，比如说用64个字符长的字符串来做密码的话，可能你重生十次后发现依然未能找到答案。</p></li><li><p>字典攻击。相比于暴力破解这种弱智儿童，字典攻击大概就是三岁小孩的智商。它使用了一个字典文件，然后一一尝试文件中的每个密码。现在在网络上有很多的人相互共享自己的字典文件，这使得字典攻击比暴力破解有效率得多。尤其是当目标文件是用一个弱密码进行保护的时候，字典攻击效率较高。但是，由于字典攻击没有囊括所有可能的密码，所以对于强密码保护的zip文件，字典攻击毫无办法。</p></li></ul><p>最有意思的一种方法：</p><ul><li>明文攻击。这是到目前为止最智能的一种攻击方法，但只有PKCrack可以做到。眼见为实，你可以亲自尝试一下。但是首先，你需要一些前提条件：<br>一个加密的压缩文件<br>了解压缩文件的zip版本（比如加密平台、zip版本号等，可以通过文件属性了解。如果是linux平台，用unzip -v命令可以查看一个zip包的详细信息，包括加密算法等。 知道压缩包里某个文件的部分连续内容（至少12字节）</li></ul><a id="more"></a><ul><li>第二步</li></ul><p> 破解</p><p>如果你已经知道加密文件的部分内容，比如在某个网站上发现了它的readme.txt文件，你就可以开始尝试破解了。首先，将这个明文文件打包成zip包，比如将readme.txt打包成readme.zip。打包完成后，需要确认二者采用的压缩算法相同。一个简单的判断方法是用winRAR打开文件，同一个文件压缩后的体积是否相同。如果相同，基本可以说明你用的压缩算法是正确的。如果不同，就尝试另一种压缩算法。</p><p>现在，你有了两个文件：</p><ol><li>加密了的目标文件crypt.zip(1.zip)</li><li>你获取到的明文（readme.txt）生成的zip包plain.zip(readme.zip)</li></ol><p>假设两个文件的结构如下：<br>Crypt.zip</p><pre><code>-- file1.txt-- readme.txt</code></pre><p>Plain.zip</p><p>|– readme.txt</p><p>然后，通过控制台调用pkcrack：<br>pkcrack –c readme.txt –p readme.txt –C 1.zip –P readme.zip -d de.zip</p><p>几个参数的意义如下：</p><p>-C : 要破解的目标文件（含路径）</p><p>-c ：破解文件中的明文文件的名字（其路径不包括系统路径，从zip文件一层开始）</p><p>-P ：压缩后的明文文件</p><p>-p : 压缩的明文文件中明文文件的名字（也就是readme.txt在plain.zip中的位置）</p><p>如下是一个解密过程的截图：</p><p><img src="http://i.imgur.com/UTJFvY5.png" alt></p><p>这里有一个要注意的地方：pkcrack在vista和win7下面无法正常运行，所以请保证操作系统是xp或者linux。</p><p>pkcrack还有一个重要的选项是-d，后面跟一个文件名，比如decrypt.zip，表示解密后的zip文件输出。虽然在这个例子中，我没有用到这个选项，但是强烈推荐使用这一选项。如果不用这一选项，解密的时间非常长，而使用这一选项的话，一般只要几分钟。至于为什么不用会变慢，大家可以参照它的readme文档，大概是跟一个叫做findkey的程序有关，这里就不多解释了。</p><blockquote><p>如何简单的避免密码破解呢？<br>对于明文攻击，最简单有效的方法是进行两次zip加密，这样明文文件的信息就不会暴露在破解者的眼皮底下。对于字典攻击，避免使用弱密码，采用数字加字符的方式生成密码。对于暴力破解，采用7个字符以上的密码就可以让破解者见鬼去了。</p></blockquote><p>linux（kali2）意外情况。<br><img src="http://i.imgur.com/Nepy701.jpg" alt></p><hr><blockquote><p>资料引用自<a href="http://blog.csdn.net/jiangwlee/article/details/6911087" target="_blank" rel="noopener">CSDN</a></p></blockquote><hr><h2 id="样例测试："><a href="#样例测试：" class="headerlink" title="样例测试："></a>样例测试：</h2><blockquote><p>样例下载 XDCTF 2015 MISC 200</p></blockquote><p>链接: <a href="http://pan.baidu.com/s/1hqLcqbi" target="_blank" rel="noopener">http://pan.baidu.com/s/1hqLcqbi</a> 密码: 2nmd</p><p>简要测试步骤：</p><ol><li>binwalk扫描</li><li>foremost提取</li><li>观察<a href="http://baike.baidu.com/link?url=K0e8OhlC_VBRKJnMIG4ndBVF5d1bXgADWgm8RSnTMYC-PUeP4g4TuHJNeTCJMJ0VveaUK8rxEZ30HK4-4LEfyK" target="_blank" rel="noopener">CRC32(百科链接)</a></li><li>提取文件组装</li><li>pkcrack破解<br>测试图见上文。</li></ol><p><strong>xmsec</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;ZIP密码破解——明文攻击&quot;&gt;&lt;a href=&quot;#ZIP密码破解——明文攻击&quot; class=&quot;headerlink&quot; title=&quot;ZIP密码破解——明文攻击&quot;&gt;&lt;/a&gt;ZIP密码破解——明文攻击&lt;/h3&gt;&lt;h4 id=&quot;——-evalsafe-group&quot;&gt;&lt;a href=&quot;#——-evalsafe-group&quot; class=&quot;headerlink&quot; title=&quot;—— evalsafe group&quot;&gt;&lt;/a&gt;—— evalsafe group&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;介绍：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在介绍这三种方法之前，我先给大家介绍几个工具：&lt;/p&gt;
+&lt;p&gt;AZPR : &lt;a href=&quot;http://www.elcomsoft.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.elcomsoft.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;UZPC : &lt;a href=&quot;http://www.chat.ru/~m53group&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.chat.ru/~m53group&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PKCrack : &lt;a href=&quot;http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;具体怎么使用，可以参照他们的文档，很详细。当然，你也可以通过搜索引擎选择其他的工具。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;了解目标文件
+俗话说，知己知彼，百战不殆。
+在进行破解之前，全面了解加密的文件可以帮助我们获得很多有用的信息。比如，用WinRAR（windows）或者‘unzip -l’（linux）命令来?获取压缩包的目录结构，和它所包含的文件信息。你时刻要提醒自己注意&amp;gt;的是，有没有可能知道某个加密文件的部分信息。比如说，一个简单的文本文件（readme.txt），或者通用的dll文件（VBXXX.dll、MFCXX.dll），或者是一个通用的.exe文件（SETUP.EXC）。尽可能的去发现任何你可能发现的东西，这一点非常重要。如果你得不到加密文件里的任何片段，那么很遗憾，你将无法使用明文攻击这一最有效的破解利器。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;破解的三种方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;暴力破解。这是最花时间的一种破解方式，除此之外你还能期待些什么？正如它的名字所表达的，暴力破解就是不断的去尝试所有可能的密码。如果密码比较短，或许在短时间内可以找到正确的密码。但是如果比较长，比如说用64个字符长的字符串来做密码的话，可能你重生十次后发现依然未能找到答案。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;字典攻击。相比于暴力破解这种弱智儿童，字典攻击大概就是三岁小孩的智商。它使用了一个字典文件，然后一一尝试文件中的每个密码。现在在网络上有很多的人相互共享自己的字典文件，这使得字典攻击比暴力破解有效率得多。尤其是当目标文件是用一个弱密码进行保护的时候，字典攻击效率较高。但是，由于字典攻击没有囊括所有可能的密码，所以对于强密码保护的zip文件，字典攻击毫无办法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最有意思的一种方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;明文攻击。这是到目前为止最智能的一种攻击方法，但只有PKCrack可以做到。眼见为实，你可以亲自尝试一下。但是首先，你需要一些前提条件：&lt;br&gt;一个加密的压缩文件&lt;br&gt;了解压缩文件的zip版本（比如加密平台、zip版本号等，可以通过文件属性了解。如果是linux平台，用unzip -v命令可以查看一个zip包的详细信息，包括加密算法等。 知道压缩包里某个文件的部分连续内容（至少12字节）&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="misc" scheme="http://blog.xmsec.cc/tags/misc/"/>
+    
+      <category term="crypto" scheme="http://blog.xmsec.cc/tags/crypto/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Use Octopress</title>
+    <link href="http://blog.xmsec.cc//posts/Use-Ocopress/"/>
+    <id>http://blog.xmsec.cc//posts/Use-Ocopress/</id>
+    <published>2015-10-02T14:12:23.000Z</published>
+    <updated>2016-09-15T12:49:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="GIT上个人静态博客安装"><a href="#GIT上个人静态博客安装" class="headerlink" title="GIT上个人静态博客安装"></a>GIT上个人静态博客安装</h3><h4 id="——-evalsafe-group"><a href="#——-evalsafe-group" class="headerlink" title="—— evalsafe group"></a>—— evalsafe group</h4><p>octopress在GIT上的安装，根据视频演示，整理文字内容如下。</p><p> 更新后注明：</p><p><strong>1.</strong><br> 需要搭建平台环境，并且修改部分http地址</p><pre><code>（2015.11.22更新Ruby镜像地址，因http镜像关闭；增加部分流程）环境搭建：Git、Ruby、DevKit、MarkdownPad</code></pre><p><strong>2.</strong> ruby 环境问题，可能会遇到问题，提供其他方案</p><ul><li>Git：版本管理工具，将代码托管到 GitHub</li><li>Ruby + DevKit：生成静态网页</li><li><p>MarkdownPad：Windows 下 Markdown 语法编辑器</p><p> 1.Git config –global user.name “”<br> 2.Git config –global user.email  “”<br> 3.C：user目录下.ssh  使用bash  ssh-keygen –t rsa –C “email”  回车<br> 4.密码可以不用输入。文件生成为pub公钥内容提交到git的settings，ssh keys  Add 新的，加入key<br> 5.bash ssh –T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>  @again<br> 6.Ruby:Path  Add to Path! &amp; bash  ruby dk.rb init   生成 yml文件<br> 7.Yml文件存有 ruby path<br> 8.Bash buby dk.rb install<br> 9.Octopress 克隆</p></li></ul><ul><li><p>克隆 Octopress 至本地</p><p>  git clone git://github.com/imathis/octopress.git octopress</p></li><li><p>安装依赖项</p><p>  gem sources –a <a href="https://ruby.taobao.org" target="_blank" rel="noopener">https://ruby.taobao.org</a><br>  gem sources –r <a href="http://rubygems.org" target="_blank" rel="noopener">http://rubygems.org</a><br>  gem sources –r <a href="https://rubygems.org" target="_blank" rel="noopener">https://rubygems.org</a></p><p>  vi Gemfile VIM  press i</p><p>  gem install bundler<br>  bundle install<br>  安装依赖项时需要注意</p></li><li><p>安装并使用默认主题</p><p>  rake install<br>  1.bash rake generate   rake preview<br>  2.文件夹Sources  include  head.html  google libs.baidu.com/jquery</p></li><li><p>新建博客</p><p>  rake new_post[“title”]</p></li><li><p>新建单页面</p><p>  rake new_page[jikexueyuan]<br>  // creates /source/jikexueyuan/index.markdown</p><p>  rake new_page[jikexueyuan/page.html]<br>  // creates /source/jikexueyuan/page.html</p></li></ul><a id="more"></a><blockquote><p>1.工具<br>    MarkdownPad、记事本、Vim、Emacs……<br>引用</p><pre><code>   - 列表、   * 加粗、  []()  超链接、  !{}() 图片、   ｛% video http 640 320 %}　视频、···code···</code></pre></blockquote><ul><li><p>新建仓库</p><p>  username.github.io</p></li></ul><ul><li><p>与本地 Octopress 目录绑定</p><p>  rake setup_github_pages   输入第一种URL<br>  rake deploy（rake deploy可能会遇到错误，可使用git windows 同步）</p></li><li><p>将 source 目录更新到远程仓库</p><p>  git add .<br>  git commit -m ‘your message’<br>  git push origin source</p></li></ul><h2 id="博客的自定义配置"><a href="#博客的自定义配置" class="headerlink" title="博客的自定义配置"></a>博客的自定义配置</h2><ul><li><p>主配置文件</p><p>在 _config.yml 文件中，设置 url、title、author 等基本信息</p></li><li><p>主题安装</p><p>  1.到 GitHub 上找主题文件</p><p>  2.安装主题<br>  rake install[‘themename’]</p><p>  3.重新生成<br>  rake generate<br><strong>安装主题会清除原有的配置</strong></p></li><li><p>增加评论功能</p><p>  使用多说插件 <a href="http://duoshuo.com/" title="http://duoshuo.com/" target="_blank" rel="noopener">http://duoshuo.com/</a></p></li></ul><p>注：<br>1.bash表示bash提示符下<br>2.请结合google使用，本文只提供参考</p><p>xmsec</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;GIT上个人静态博客安装&quot;&gt;&lt;a href=&quot;#GIT上个人静态博客安装&quot; class=&quot;headerlink&quot; title=&quot;GIT上个人静态博客安装&quot;&gt;&lt;/a&gt;GIT上个人静态博客安装&lt;/h3&gt;&lt;h4 id=&quot;——-evalsafe-group&quot;&gt;&lt;a href=&quot;#——-evalsafe-group&quot; class=&quot;headerlink&quot; title=&quot;—— evalsafe group&quot;&gt;&lt;/a&gt;—— evalsafe group&lt;/h4&gt;&lt;p&gt;octopress在GIT上的安装，根据视频演示，整理文字内容如下。&lt;/p&gt;
+&lt;p&gt; 更新后注明：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;&lt;br&gt; 需要搭建平台环境，并且修改部分http地址&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;（2015.11.22更新Ruby镜像地址，因http镜像关闭；增加部分流程）
+
+环境搭建：Git、Ruby、DevKit、MarkdownPad
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; ruby 环境问题，可能会遇到问题，提供其他方案&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Git：版本管理工具，将代码托管到 GitHub&lt;/li&gt;
+&lt;li&gt;Ruby + DevKit：生成静态网页&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;MarkdownPad：Windows 下 Markdown 语法编辑器&lt;/p&gt;
+&lt;p&gt; 1.Git config –global user.name “”&lt;br&gt; 2.Git config –global user.email  “”&lt;br&gt; 3.C：user目录下.ssh  使用bash  ssh-keygen –t rsa –C “email”  回车&lt;br&gt; 4.密码可以不用输入。文件生成为pub公钥内容提交到git的settings，ssh keys  Add 新的，加入key&lt;br&gt; 5.bash ssh –T &lt;a href=&quot;mailto:git@github.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;git@github.com&lt;/a&gt;  @again&lt;br&gt; 6.Ruby:Path  Add to Path! &amp;amp; bash  ruby dk.rb init   生成 yml文件&lt;br&gt; 7.Yml文件存有 ruby path&lt;br&gt; 8.Bash buby dk.rb install&lt;br&gt; 9.Octopress 克隆&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;克隆 Octopress 至本地&lt;/p&gt;
+&lt;p&gt;  git clone git://github.com/imathis/octopress.git octopress&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装依赖项&lt;/p&gt;
+&lt;p&gt;  gem sources –a &lt;a href=&quot;https://ruby.taobao.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://ruby.taobao.org&lt;/a&gt;&lt;br&gt;  gem sources –r &lt;a href=&quot;http://rubygems.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://rubygems.org&lt;/a&gt;&lt;br&gt;  gem sources –r &lt;a href=&quot;https://rubygems.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://rubygems.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;  vi Gemfile VIM  press i&lt;/p&gt;
+&lt;p&gt;  gem install bundler&lt;br&gt;  bundle install&lt;br&gt;  安装依赖项时需要注意&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装并使用默认主题&lt;/p&gt;
+&lt;p&gt;  rake install&lt;br&gt;  1.bash rake generate   rake preview&lt;br&gt;  2.文件夹Sources  include  head.html  google libs.baidu.com/jquery&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;新建博客&lt;/p&gt;
+&lt;p&gt;  rake new_post[“title”]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;新建单页面&lt;/p&gt;
+&lt;p&gt;  rake new_page[jikexueyuan]&lt;br&gt;  // creates /source/jikexueyuan/index.markdown&lt;/p&gt;
+&lt;p&gt;  rake new_page[jikexueyuan/page.html]&lt;br&gt;  // creates /source/jikexueyuan/page.html&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Blog" scheme="http://blog.xmsec.cc/tags/Blog/"/>
+    
+      <category term="Octopress" scheme="http://blog.xmsec.cc/tags/Octopress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Welcome to xmsec</title>
+    <link href="http://blog.xmsec.cc//posts/welcome-to-xmsec/"/>
+    <id>http://blog.xmsec.cc//posts/welcome-to-xmsec/</id>
+    <published>2015-09-16T14:12:23.000Z</published>
+    <updated>2016-03-03T13:01:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="About-Information-Security"><a href="#About-Information-Security" class="headerlink" title="About Information Security"></a>About Information Security</h3><h4 id="evalsafe-group"><a href="#evalsafe-group" class="headerlink" title="evalsafe group"></a>evalsafe group</h4><p>Place to share notes about learning skills about IS. </p><p>xmsec</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;About-Information-Security&quot;&gt;&lt;a href=&quot;#About-Information-Security&quot; class=&quot;headerlink&quot; title=&quot;About Information Security&quot;&gt;&lt;/a&gt;About In
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://blog.xmsec.cc/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+</feed>
