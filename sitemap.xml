@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.xmsec.cc/blog/2019/04/26/CTF%E8%BF%90%E7%BB%B4%E5%91%BD%E4%BB%A4%E6%89%8B%E8%AE%B0/</loc>
+    <loc>http://blog.xmsec.cc/blog/2016/09/10/blog-temporary-removed/</loc>
     
-    <lastmod>2019-04-26T12:15:53.040Z</lastmod>
+    <lastmod>2019-04-26T12:23:46.253Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.xmsec.cc/blog/2019/04/26/ctf-command-notes/</loc>
+    
+    <lastmod>2019-04-26T12:19:15.703Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>http://blog.xmsec.cc/blog/2015/09/16/welcome-to-xmsec/</loc>
     
     <lastmod>2019-04-26T11:48:47.320Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.xmsec.cc/blog/2016/09/10/blog-temporary-removed/</loc>
-    
-    <lastmod>2019-04-09T12:09:31.562Z</lastmod>
     
   </url>
   
