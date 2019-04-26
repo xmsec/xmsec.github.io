@@ -330,6 +330,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.xmsec.cc/blog/2015/10/10/ZIP-pkcrack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xmsec">
+      <meta itemprop="description" content="Stories and ideas we share. Security and Developing we focus.">
+      <meta itemprop="image" content="https://www.xmsec.cc/assets/img/user-image.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xmsec - 陌小生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2015/10/10/ZIP-pkcrack/" class="post-title-link" itemprop="url">ZIP crack</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-10-10 22:12:00" itemprop="dateCreated datePublished" datetime="2015-10-10T22:12:00+08:00">2015-10-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-08-20 12:07:00" itemprop="dateModified" datetime="2016-08-20T12:07:00+08:00">2016-08-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="ZIP密码破解——明文攻击"><a href="#ZIP密码破解——明文攻击" class="headerlink" title="ZIP密码破解——明文攻击"></a>ZIP密码破解——明文攻击</h3><h4 id="——-evalsafe-group"><a href="#——-evalsafe-group" class="headerlink" title="—— evalsafe group"></a>—— evalsafe group</h4><p><strong>介绍：</strong></p>
+<p>随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。</p>
+<blockquote>
+<p>在介绍这三种方法之前，我先给大家介绍几个工具：</p>
+<p>AZPR : <a href="http://www.elcomsoft.com" target="_blank" rel="noopener">http://www.elcomsoft.com</a></p>
+<p>UZPC : <a href="http://www.chat.ru/~m53group" target="_blank" rel="noopener">http://www.chat.ru/~m53group</a></p>
+<p>PKCrack : <a href="http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html" target="_blank" rel="noopener">http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html</a></p>
+</blockquote>
+<p>具体怎么使用，可以参照他们的文档，很详细。当然，你也可以通过搜索引擎选择其他的工具。</p>
+<ul>
+<li>第一步 </li>
+</ul>
+<pre><code>了解目标文件
+俗话说，知己知彼，百战不殆。
+在进行破解之前，全面了解加密的文件可以帮助我们获得很多有用的信息。比如，用WinRAR（windows）或者‘unzip -l’（linux）命令来?获取压缩包的目录结构，和它所包含的文件信息。你时刻要提醒自己注意&gt;的是，有没有可能知道某个加密文件的部分信息。比如说，一个简单的文本文件（readme.txt），或者通用的dll文件（VBXXX.dll、MFCXX.dll），或者是一个通用的.exe文件（SETUP.EXC）。尽可能的去发现任何你可能发现的东西，这一点非常重要。如果你得不到加密文件里的任何片段，那么很遗憾，你将无法使用明文攻击这一最有效的破解利器。
+</code></pre><p>破解的三种方法：</p>
+<ul>
+<li><p>暴力破解。这是最花时间的一种破解方式，除此之外你还能期待些什么？正如它的名字所表达的，暴力破解就是不断的去尝试所有可能的密码。如果密码比较短，或许在短时间内可以找到正确的密码。但是如果比较长，比如说用64个字符长的字符串来做密码的话，可能你重生十次后发现依然未能找到答案。</p>
+</li>
+<li><p>字典攻击。相比于暴力破解这种弱智儿童，字典攻击大概就是三岁小孩的智商。它使用了一个字典文件，然后一一尝试文件中的每个密码。现在在网络上有很多的人相互共享自己的字典文件，这使得字典攻击比暴力破解有效率得多。尤其是当目标文件是用一个弱密码进行保护的时候，字典攻击效率较高。但是，由于字典攻击没有囊括所有可能的密码，所以对于强密码保护的zip文件，字典攻击毫无办法。</p>
+</li>
+</ul>
+<p>最有意思的一种方法：</p>
+<ul>
+<li>明文攻击。这是到目前为止最智能的一种攻击方法，但只有PKCrack可以做到。眼见为实，你可以亲自尝试一下。但是首先，你需要一些前提条件：<br>一个加密的压缩文件<br>了解压缩文件的zip版本（比如加密平台、zip版本号等，可以通过文件属性了解。如果是linux平台，用unzip -v命令可以查看一个zip包的详细信息，包括加密算法等。 知道压缩包里某个文件的部分连续内容（至少12字节）</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2015/10/10/ZIP-pkcrack/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.xmsec.cc/blog/2015/10/02/Use-Ocopress/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -586,7 +772,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2016-03-03 21:01:40" itemprop="dateModified" datetime="2016-03-03T21:01:40+08:00">2016-03-03</time>
+                <time title="修改时间：2019-04-26 19:48:47" itemprop="dateModified" datetime="2019-04-26T19:48:47+08:00">2019-04-26</time>
               
             
           </span>
@@ -622,8 +808,10 @@
       
         
           
-            <h3 id="About-Information-Security"><a href="#About-Information-Security" class="headerlink" title="About Information Security"></a>About Information Security</h3><h4 id="evalsafe-group"><a href="#evalsafe-group" class="headerlink" title="evalsafe group"></a>evalsafe group</h4><p>Place to share notes about learning skills about IS. </p>
-<p>xmsec</p>
+            <h3 id="About-Information-Security"><a href="#About-Information-Security" class="headerlink" title="About Information Security"></a>About Information Security</h3><p>Place to share. </p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> xmsec</li>
+</ul>
 
           
         
@@ -713,7 +901,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -760,7 +948,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

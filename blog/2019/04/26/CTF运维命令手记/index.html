@@ -96,21 +96,20 @@
 
 
 
-  <meta name="description" content="ZIP密码破解——明文攻击—— evalsafe group介绍： 随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。  在介绍这三种方法之前，我先给大家介绍几个工具： AZPR : http://www.elcomsoft.com UZPC : http://www.chat.ru/~m53group">
-<meta name="keywords" content="misc,crypto">
+  <meta name="description" content="引言一直没有把用到的系统命令系统整理一下，想着博客搁置好久了，好些内容也在之前的随笔写了些，但是混合起来还是干货不足，现在这里划一划（吧。 不定期更新中 Docker 进入容器 bashdocker exec -it container-id /bin/[ba]sh 新建容器docker run -it[d] [--rm] -v hostdir:vdir -p hostp:vp [--name x">
+<meta name="keywords" content="CTF,运维">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ZIP crack">
-<meta property="og:url" content="http://blog.xmsec.cc/blog/2015/10/10/ZIP-pkcrack/index.html">
+<meta property="og:title" content="CTF运维命令手记">
+<meta property="og:url" content="http://blog.xmsec.cc/blog/2019/04/26/CTF运维命令手记/index.html">
 <meta property="og:site_name" content="xmsec - 陌小生">
-<meta property="og:description" content="ZIP密码破解——明文攻击—— evalsafe group介绍： 随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。  在介绍这三种方法之前，我先给大家介绍几个工具： AZPR : http://www.elcomsoft.com UZPC : http://www.chat.ru/~m53group">
+<meta property="og:description" content="引言一直没有把用到的系统命令系统整理一下，想着博客搁置好久了，好些内容也在之前的随笔写了些，但是混合起来还是干货不足，现在这里划一划（吧。 不定期更新中 Docker 进入容器 bashdocker exec -it container-id /bin/[ba]sh 新建容器docker run -it[d] [--rm] -v hostdir:vdir -p hostp:vp [--name x">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://i.imgur.com/UTJFvY5.png">
-<meta property="og:image" content="http://i.imgur.com/Nepy701.jpg">
-<meta property="og:updated_time" content="2016-08-20T04:07:00.000Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005CZNr7ly1g2gapvpd4vj30ny0mmq4z.jpg">
+<meta property="og:updated_time" content="2019-04-26T12:15:53.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZIP crack">
-<meta name="twitter:description" content="ZIP密码破解——明文攻击—— evalsafe group介绍： 随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。  在介绍这三种方法之前，我先给大家介绍几个工具： AZPR : http://www.elcomsoft.com UZPC : http://www.chat.ru/~m53group">
-<meta name="twitter:image" content="http://i.imgur.com/UTJFvY5.png">
+<meta name="twitter:title" content="CTF运维命令手记">
+<meta name="twitter:description" content="引言一直没有把用到的系统命令系统整理一下，想着博客搁置好久了，好些内容也在之前的随笔写了些，但是混合起来还是干货不足，现在这里划一划（吧。 不定期更新中 Docker 进入容器 bashdocker exec -it container-id /bin/[ba]sh 新建容器docker run -it[d] [--rm] -v hostdir:vdir -p hostp:vp [--name x">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005CZNr7ly1g2gapvpd4vj30ny0mmq4z.jpg">
 
 
 
@@ -120,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://blog.xmsec.cc/blog/2015/10/10/ZIP-pkcrack/">
+  <link rel="canonical" href="http://blog.xmsec.cc/blog/2019/04/26/CTF运维命令手记/">
 
 
 
@@ -130,7 +129,7 @@
   };
 </script>
 
-  <title>ZIP crack | xmsec - 陌小生</title>
+  <title>CTF运维命令手记 | xmsec - 陌小生</title>
   
 
 
@@ -333,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.xmsec.cc/blog/2015/10/10/ZIP-pkcrack/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xmsec.cc/blog/2019/04/26/CTF运维命令手记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xmsec">
@@ -350,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ZIP crack
+          <h1 class="post-title" itemprop="name headline">CTF运维命令手记
 
               
             
@@ -376,24 +375,12 @@
                 
               
 
-              <time title="创建时间：2015-10-10 22:12:00" itemprop="dateCreated datePublished" datetime="2015-10-10T22:12:00+08:00">2015-10-10</time>
+              <time title="创建时间：2019-04-26 19:31:45 / 修改时间：20:15:53" itemprop="dateCreated datePublished" datetime="2019-04-26T19:31:45+08:00">2019-04-26</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2016-08-20 12:07:00" itemprop="dateModified" datetime="2016-08-20T12:07:00+08:00">2016-08-20</time>
               
             
           </span>
@@ -427,80 +414,63 @@
       
 
       
-        <h3 id="ZIP密码破解——明文攻击"><a href="#ZIP密码破解——明文攻击" class="headerlink" title="ZIP密码破解——明文攻击"></a>ZIP密码破解——明文攻击</h3><h4 id="——-evalsafe-group"><a href="#——-evalsafe-group" class="headerlink" title="—— evalsafe group"></a>—— evalsafe group</h4><p><strong>介绍：</strong></p>
-<p>随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。</p>
-<blockquote>
-<p>在介绍这三种方法之前，我先给大家介绍几个工具：</p>
-<p>AZPR : <a href="http://www.elcomsoft.com" target="_blank" rel="noopener">http://www.elcomsoft.com</a></p>
-<p>UZPC : <a href="http://www.chat.ru/~m53group" target="_blank" rel="noopener">http://www.chat.ru/~m53group</a></p>
-<p>PKCrack : <a href="http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html" target="_blank" rel="noopener">http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html</a></p>
-</blockquote>
-<p>具体怎么使用，可以参照他们的文档，很详细。当然，你也可以通过搜索引擎选择其他的工具。</p>
-<ul>
-<li>第一步 </li>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>一直没有把用到的系统命令系统整理一下，想着博客搁置好久了，好些内容也在之前的随笔写了些，但是混合起来还是干货不足，现在这里划一划（吧。</p>
+<p>不定期更新中</p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><ul>
+<li>进入容器 bash<br><code>docker exec -it container-id /bin/[ba]sh</code></li>
+<li>新建容器<br><code>docker run -it[d] [--rm] -v hostdir:vdir -p hostp:vp [--name xxx] /file/to/run</code></li>
+<li>build image<br><code>docker build ./</code> </li>
+<li>清掉终止的容器<br><code>docker rm $(docker ps -aq)</code></li>
 </ul>
-<pre><code>了解目标文件
-俗话说，知己知彼，百战不殆。
-在进行破解之前，全面了解加密的文件可以帮助我们获得很多有用的信息。比如，用WinRAR（windows）或者‘unzip -l’（linux）命令来?获取压缩包的目录结构，和它所包含的文件信息。你时刻要提醒自己注意&gt;的是，有没有可能知道某个加密文件的部分信息。比如说，一个简单的文本文件（readme.txt），或者通用的dll文件（VBXXX.dll、MFCXX.dll），或者是一个通用的.exe文件（SETUP.EXC）。尽可能的去发现任何你可能发现的东西，这一点非常重要。如果你得不到加密文件里的任何片段，那么很遗憾，你将无法使用明文攻击这一最有效的破解利器。
-</code></pre><p>破解的三种方法：</p>
-<ul>
-<li><p>暴力破解。这是最花时间的一种破解方式，除此之外你还能期待些什么？正如它的名字所表达的，暴力破解就是不断的去尝试所有可能的密码。如果密码比较短，或许在短时间内可以找到正确的密码。但是如果比较长，比如说用64个字符长的字符串来做密码的话，可能你重生十次后发现依然未能找到答案。</p>
+<h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker compose"></a>docker compose</h2><ul>
+<li>up</li>
+<li>down</li>
+<li>restart</li>
+</ul>
+<h2 id="文件-内容寻找、替换"><a href="#文件-内容寻找、替换" class="headerlink" title="文件/内容寻找、替换"></a>文件/内容寻找、替换</h2><ul>
+<li><code>grep -r &quot;flag&quot; *</code> #当前目录</li>
+<li><p><code>grep -rln &#39;keyword&#39; /home</code></p>
 </li>
-<li><p>字典攻击。相比于暴力破解这种弱智儿童，字典攻击大概就是三岁小孩的智商。它使用了一个字典文件，然后一一尝试文件中的每个密码。现在在网络上有很多的人相互共享自己的字典文件，这使得字典攻击比暴力破解有效率得多。尤其是当目标文件是用一个弱密码进行保护的时候，字典攻击效率较高。但是，由于字典攻击没有囊括所有可能的密码，所以对于强密码保护的zip文件，字典攻击毫无办法。</p>
+<li><p><code>grep -rlP ^1cff /home</code>  按16进制搜索</p>
+</li>
+<li><p><code>find /home -name &#39;*keyword*&#39;</code>按文件名搜索 </p>
+</li>
+<li><p><code>sed -i &#39;s/astring/bstring/g&#39; path/to/file</code></p>
+</li>
+<li><code>sed -i &#39;s/http:\/\/archive.ubuntu.com\/ubuntu\//http:\/\/mirrors.163.com\/ubuntu\//g&#39; /etc/apt/sources.list</code></li>
+<li><code>sed -i &#39;s/astring/bstring/g&#39; [grep -rl](反引号包裹</code>  替换子文件夹<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="备份数据库"><a href="#备份数据库" class="headerlink" title="备份数据库"></a>备份数据库</h3></li>
+<li>mysqldump [-hhostname] -uusername -ppassword –databases databasename &gt; backupfile.sql</li>
+<li>mysqldump -u 用户名 -p 密码 数据库名 &gt; bak.sql</li>
+<li>mysqldump –all-databases &gt; bak.sql<h3 id="还原数据库"><a href="#还原数据库" class="headerlink" title="还原数据库"></a>还原数据库</h3></li>
+<li>mysql -u username -p [pass] databasename &lt; backupfile.sql</li>
+<li>mysql -u 用户名 -p 密码 数据库名 &lt; bak.sql</li>
+</ul>
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><ul>
+<li>打包文件<br><code>tar zcvf /tmp/www.tgz /var/www/html</code></li>
+<li>解压文件<br><code>tar zxvf /tmp/www.tgz -C /tmp/</code></li>
+</ul>
+<h2 id="cron"><a href="#cron" class="headerlink" title="cron"></a>cron</h2><p>提供crontab命令来设定cron服务的，以下是这个命令的一些参数与说明:</p>
+<ul>
+<li>crontab -u //设定某个用户的cron服务</li>
+<li>crontab -l //列出某个用户cron服务的详细内容</li>
+<li>crontab -r //删除没个用户的cron服务</li>
+<li>crontab -e //编辑某个用户的cron服务</li>
+</ul>
+<h2 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h2><ul>
+<li><code>netstat -antp</code></li>
+<li><code>netstat -ano</code> win</li>
+<li><code>netstat -ano|findstr &#39;port num&#39;</code> win</li>
+</ul>
+<h2 id="双网卡内外网路由"><a href="#双网卡内外网路由" class="headerlink" title="双网卡内外网路由"></a>双网卡内外网路由</h2><ul>
+<li>win    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">route ADD 202.1.0.100 MASK 255.255.255.255 172.16.7.1 if 12</span><br><span class="line">route ADD 192.168.74.10 MASK 255.255.255.0 192.168.75.254 if 15</span><br><span class="line">route ADD 10.10.0.0 MASK 255.255.0.0 172.16.3.254 if 15</span><br><span class="line">route delete 0.0.0.0</span><br><span class="line">route add 0.0.0.0 mask 0.0.0.0 192.168.43.1 if 5</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>最有意思的一种方法：</p>
+<p>注意接口配置</p>
 <ul>
-<li>明文攻击。这是到目前为止最智能的一种攻击方法，但只有PKCrack可以做到。眼见为实，你可以亲自尝试一下。但是首先，你需要一些前提条件：<br>一个加密的压缩文件<br>了解压缩文件的zip版本（比如加密平台、zip版本号等，可以通过文件属性了解。如果是linux平台，用unzip -v命令可以查看一个zip包的详细信息，包括加密算法等。 知道压缩包里某个文件的部分连续内容（至少12字节）</li>
+<li>mac<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netstat -rn    --查看路由表</span><br><span class="line">route get 0.0.0.0 --获取默认路由</span><br><span class="line">sudo route delete 0.0.0.0    --删除默认路由</span><br><span class="line">sudo route add -net 0.0.0.0 192.168.1.1    --添加公网网关</span><br><span class="line">sudo route add -net 166.0.0.0 166.6.66.254    --添加内网网关</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<a id="more"></a>
-<ul>
-<li>第二步</li>
-</ul>
-<p> 破解</p>
-<p>如果你已经知道加密文件的部分内容，比如在某个网站上发现了它的readme.txt文件，你就可以开始尝试破解了。首先，将这个明文文件打包成zip包，比如将readme.txt打包成readme.zip。打包完成后，需要确认二者采用的压缩算法相同。一个简单的判断方法是用winRAR打开文件，同一个文件压缩后的体积是否相同。如果相同，基本可以说明你用的压缩算法是正确的。如果不同，就尝试另一种压缩算法。</p>
-<p>现在，你有了两个文件：</p>
-<ol>
-<li>加密了的目标文件crypt.zip(1.zip)</li>
-<li>你获取到的明文（readme.txt）生成的zip包plain.zip(readme.zip)</li>
-</ol>
-<p>假设两个文件的结构如下：<br>Crypt.zip</p>
-<pre><code>-- file1.txt
--- readme.txt
-</code></pre><p>Plain.zip</p>
-<p>|– readme.txt</p>
-<p>然后，通过控制台调用pkcrack：<br>pkcrack –c readme.txt –p readme.txt –C 1.zip –P readme.zip -d de.zip</p>
-<p>几个参数的意义如下：</p>
-<p>-C : 要破解的目标文件（含路径）</p>
-<p>-c ：破解文件中的明文文件的名字（其路径不包括系统路径，从zip文件一层开始）</p>
-<p>-P ：压缩后的明文文件</p>
-<p>-p : 压缩的明文文件中明文文件的名字（也就是readme.txt在plain.zip中的位置）</p>
-<p>如下是一个解密过程的截图：</p>
-<p><img src="http://i.imgur.com/UTJFvY5.png" alt></p>
-<p>这里有一个要注意的地方：pkcrack在vista和win7下面无法正常运行，所以请保证操作系统是xp或者linux。</p>
-<p>pkcrack还有一个重要的选项是-d，后面跟一个文件名，比如decrypt.zip，表示解密后的zip文件输出。虽然在这个例子中，我没有用到这个选项，但是强烈推荐使用这一选项。如果不用这一选项，解密的时间非常长，而使用这一选项的话，一般只要几分钟。至于为什么不用会变慢，大家可以参照它的readme文档，大概是跟一个叫做findkey的程序有关，这里就不多解释了。</p>
-<blockquote>
-<p>如何简单的避免密码破解呢？<br>对于明文攻击，最简单有效的方法是进行两次zip加密，这样明文文件的信息就不会暴露在破解者的眼皮底下。对于字典攻击，避免使用弱密码，采用数字加字符的方式生成密码。对于暴力破解，采用7个字符以上的密码就可以让破解者见鬼去了。</p>
-</blockquote>
-<p>linux（kali2）意外情况。<br><img src="http://i.imgur.com/Nepy701.jpg" alt></p>
-<hr>
-<blockquote>
-<p>资料引用自<a href="http://blog.csdn.net/jiangwlee/article/details/6911087" target="_blank" rel="noopener">CSDN</a></p>
-</blockquote>
-<hr>
-<h2 id="样例测试："><a href="#样例测试：" class="headerlink" title="样例测试："></a>样例测试：</h2><blockquote>
-<p>样例下载 XDCTF 2015 MISC 200</p>
-</blockquote>
-<p>链接: <a href="http://pan.baidu.com/s/1hqLcqbi" target="_blank" rel="noopener">http://pan.baidu.com/s/1hqLcqbi</a> 密码: 2nmd</p>
-<p>简要测试步骤：</p>
-<ol>
-<li>binwalk扫描</li>
-<li>foremost提取</li>
-<li>观察<a href="http://baike.baidu.com/link?url=K0e8OhlC_VBRKJnMIG4ndBVF5d1bXgADWgm8RSnTMYC-PUeP4g4TuHJNeTCJMJ0VveaUK8rxEZ30HK4-4LEfyK" target="_blank" rel="noopener">CRC32(百科链接)</a></li>
-<li>提取文件组装</li>
-<li>pkcrack破解<br>测试图见上文。</li>
-</ol>
-<p><strong>xmsec</strong></p>
+<p>此外要在配置中调整默认路由网卡为优先<br><img src="https://ws1.sinaimg.cn/large/005CZNr7ly1g2gapvpd4vj30ny0mmq4z.jpg" alt></p>
 
       
     </div>
@@ -535,7 +505,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://blog.xmsec.cc/blog/2015/10/10/ZIP-pkcrack/" title="ZIP crack">http://blog.xmsec.cc/blog/2015/10/10/ZIP-pkcrack/</a>
+    <a href="http://blog.xmsec.cc/blog/2019/04/26/CTF运维命令手记/" title="CTF运维命令手记">http://blog.xmsec.cc/blog/2019/04/26/CTF运维命令手记/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -548,9 +518,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/misc/" rel="tag"># misc</a>
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
           
-            <a href="/tags/crypto/" rel="tag"># crypto</a>
+            <a href="/tags/运维/" rel="tag"># 运维</a>
           
         </div>
       
@@ -563,8 +533,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2015/10/02/Use-Ocopress/" rel="next" title="Use Octopress">
-                <i class="fa fa-chevron-left"></i> Use Octopress
+              <a href="/blog/2016/09/10/blog-temporary-removed/" rel="next" title="博客已暂时转移">
+                <i class="fa fa-chevron-left"></i> 博客已暂时转移
               </a>
             
           </div>
@@ -572,10 +542,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2016/01/28/Material-Design/" rel="prev" title="Material Design libs ‘colection’ ">
-                Material Design libs ‘colection’  <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -740,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZIP密码破解——明文攻击"><span class="nav-number">1.</span> <span class="nav-text">ZIP密码破解——明文攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#——-evalsafe-group"><span class="nav-number">1.1.</span> <span class="nav-text">—— evalsafe group</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#样例测试："><span class="nav-number"></span> <span class="nav-text">样例测试：</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">2.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-compose"><span class="nav-number">3.</span> <span class="nav-text">docker compose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件-内容寻找、替换"><span class="nav-number">4.</span> <span class="nav-text">文件/内容寻找、替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">5.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#备份数据库"><span class="nav-number">5.1.</span> <span class="nav-text">备份数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#还原数据库"><span class="nav-number">5.2.</span> <span class="nav-text">还原数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tar"><span class="nav-number">6.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cron"><span class="nav-number">7.</span> <span class="nav-text">cron</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络连接"><span class="nav-number">8.</span> <span class="nav-text">网络连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双网卡内外网路由"><span class="nav-number">9.</span> <span class="nav-text">双网卡内外网路由</span></a></li></ol></div>
             
 
           </div>
