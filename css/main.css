@@ -1,3 +1,45 @@
+.posts-expand {
+  padding-top: 40px;
+}
+mobile()
+.posts-expand .post-body h2,
+.posts-expand .post-body h3,
+.posts-expand .post-body h4,
+.posts-expand .post-body h5,
+.posts-expand .post-body h6 {
+  padding-top: 10px;
+}
+.posts-expand .post-body h2 .header-anchor,
+.posts-expand .post-body h3 .header-anchor,
+.posts-expand .post-body h4 .header-anchor,
+.posts-expand .post-body h5 .header-anchor,
+.posts-expand .post-body h6 .header-anchor {
+  float: right;
+  margin-left: 10px;
+  color: $grey-light;
+  border-bottom-style: none;
+  visibility: hidden;
+}
+.posts-expand .post-body h2 .header-anchor:hover,
+.posts-expand .post-body h3 .header-anchor:hover,
+.posts-expand .post-body h4 .header-anchor:hover,
+.posts-expand .post-body h5 .header-anchor:hover,
+.posts-expand .post-body h6 .header-anchor:hover {
+  color: inherit;
+}
+.posts-expand .post-body h2:hover .header-anchor,
+.posts-expand .post-body h3:hover .header-anchor,
+.posts-expand .post-body h4:hover .header-anchor,
+.posts-expand .post-body h5:hover .header-anchor,
+.posts-expand .post-body h6:hover .header-anchor {
+  visibility: visible;
+}
+.posts-expand .post-body img {
+  box-sizing: border-box;
+  margin: 0 auto 25px;
+  padding: 3px;
+  border: 1px solid $gray-lighter;
+}
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
   line-height: 1.15; /* 1 */
@@ -1321,8 +1363,9 @@ pre .javascript .function {
   visibility: visible;
 }
 .posts-expand .post-body img {
+  max-width: 70% !important;
   box-sizing: border-box;
-  margin: 0 auto 25px;
+  margin: 0 auto 25px !important;
   padding: 3px;
   border: 1px solid #ddd;
 }
@@ -1778,7 +1821,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #180aff;
+  background: #8ea1ff;
 }
 .feed-link,
 .chat {
