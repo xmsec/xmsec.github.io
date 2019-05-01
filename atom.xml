@@ -5,9 +5,9 @@
   <subtitle>Stories and ideas we share. Security and Developing we focus.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.xmsec.cc/"/>
+  <link href="https://blog.xmsec.cc/"/>
   <updated>2019-05-01T10:05:26.424Z</updated>
-  <id>http://blog.xmsec.cc/</id>
+  <id>https://blog.xmsec.cc/</id>
   
   <author>
     <name>xmsec</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Mac debug PHP with xdebug in vscode</title>
-    <link href="http://blog.xmsec.cc//blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/"/>
-    <id>http://blog.xmsec.cc//blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/</id>
+    <link href="https://blog.xmsec.cc//blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/"/>
+    <id>https://blog.xmsec.cc//blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/</id>
     <published>2019-05-01T09:35:29.000Z</published>
     <updated>2019-05-01T10:05:26.424Z</updated>
     
@@ -40,18 +40,18 @@
     </summary>
     
     
-      <category term="mac" scheme="http://blog.xmsec.cc/tags/mac/"/>
+      <category term="mac" scheme="https://blog.xmsec.cc/tags/mac/"/>
     
-      <category term="xdebug" scheme="http://blog.xmsec.cc/tags/xdebug/"/>
+      <category term="xdebug" scheme="https://blog.xmsec.cc/tags/xdebug/"/>
     
-      <category term="vscode" scheme="http://blog.xmsec.cc/tags/vscode/"/>
+      <category term="vscode" scheme="https://blog.xmsec.cc/tags/vscode/"/>
     
   </entry>
   
   <entry>
     <title>Web中的密码学</title>
-    <link href="http://blog.xmsec.cc//blog/2019/04/30/web-crypto/"/>
-    <id>http://blog.xmsec.cc//blog/2019/04/30/web-crypto/</id>
+    <link href="https://blog.xmsec.cc//blog/2019/04/30/web-crypto/"/>
+    <id>https://blog.xmsec.cc//blog/2019/04/30/web-crypto/</id>
     <published>2019-04-30T08:05:51.000Z</published>
     <updated>2019-04-30T08:17:04.889Z</updated>
     
@@ -69,16 +69,16 @@
     </summary>
     
     
-      <category term="web" scheme="http://blog.xmsec.cc/tags/web/"/>
+      <category term="web" scheme="https://blog.xmsec.cc/tags/web/"/>
     
-      <category term="密码学" scheme="http://blog.xmsec.cc/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+      <category term="密码学" scheme="https://blog.xmsec.cc/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>CTF运维命令手记</title>
-    <link href="http://blog.xmsec.cc//blog/2019/04/26/ctf-command-notes/"/>
-    <id>http://blog.xmsec.cc//blog/2019/04/26/ctf-command-notes/</id>
+    <link href="https://blog.xmsec.cc//blog/2019/04/26/ctf-command-notes/"/>
+    <id>https://blog.xmsec.cc//blog/2019/04/26/ctf-command-notes/</id>
     <published>2019-04-26T11:31:45.000Z</published>
     <updated>2019-04-30T08:16:47.891Z</updated>
     
@@ -92,16 +92,16 @@
     </summary>
     
     
-      <category term="CTF" scheme="http://blog.xmsec.cc/tags/CTF/"/>
+      <category term="CTF" scheme="https://blog.xmsec.cc/tags/CTF/"/>
     
-      <category term="运维" scheme="http://blog.xmsec.cc/tags/%E8%BF%90%E7%BB%B4/"/>
+      <category term="运维" scheme="https://blog.xmsec.cc/tags/%E8%BF%90%E7%BB%B4/"/>
     
   </entry>
   
   <entry>
     <title>博客已暂时转移</title>
-    <link href="http://blog.xmsec.cc//blog/2016/09/10/blog-temporary-removed/"/>
-    <id>http://blog.xmsec.cc//blog/2016/09/10/blog-temporary-removed/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/09/10/blog-temporary-removed/"/>
+    <id>https://blog.xmsec.cc//blog/2016/09/10/blog-temporary-removed/</id>
     <published>2016-09-10T12:05:08.000Z</published>
     <updated>2019-04-26T12:23:46.253Z</updated>
     
@@ -119,14 +119,14 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://blog.xmsec.cc/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://blog.xmsec.cc/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>base64中文、与佛论禅编码</title>
-    <link href="http://blog.xmsec.cc//blog/2016/07/19/base64%E4%B8%AD%E6%96%87%E3%80%81%E4%B8%8E%E4%BD%9B%E8%AE%BA%E7%A6%85%E7%BC%96%E7%A0%81/"/>
-    <id>http://blog.xmsec.cc//blog/2016/07/19/base64中文、与佛论禅编码/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/07/19/base64%E4%B8%AD%E6%96%87%E3%80%81%E4%B8%8E%E4%BD%9B%E8%AE%BA%E7%A6%85%E7%BC%96%E7%A0%81/"/>
+    <id>https://blog.xmsec.cc//blog/2016/07/19/base64中文、与佛论禅编码/</id>
     <published>2016-07-19T12:05:08.000Z</published>
     <updated>2016-08-21T04:07:36.000Z</updated>
     
@@ -139,16 +139,16 @@
     </summary>
     
     
-      <category term="CTF" scheme="http://blog.xmsec.cc/tags/CTF/"/>
+      <category term="CTF" scheme="https://blog.xmsec.cc/tags/CTF/"/>
     
-      <category term="MISC" scheme="http://blog.xmsec.cc/tags/MISC/"/>
+      <category term="MISC" scheme="https://blog.xmsec.cc/tags/MISC/"/>
     
   </entry>
   
   <entry>
     <title>ZIP伪加密</title>
-    <link href="http://blog.xmsec.cc//blog/2016/06/27/ZIP%E4%BC%AA%E5%8A%A0%E5%AF%86/"/>
-    <id>http://blog.xmsec.cc//blog/2016/06/27/ZIP伪加密/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/06/27/ZIP%E4%BC%AA%E5%8A%A0%E5%AF%86/"/>
+    <id>https://blog.xmsec.cc//blog/2016/06/27/ZIP伪加密/</id>
     <published>2016-06-27T12:05:00.000Z</published>
     <updated>2016-09-25T07:09:14.000Z</updated>
     
@@ -161,18 +161,18 @@
     </summary>
     
     
-      <category term="CTF" scheme="http://blog.xmsec.cc/tags/CTF/"/>
+      <category term="CTF" scheme="https://blog.xmsec.cc/tags/CTF/"/>
     
-      <category term="隐写术" scheme="http://blog.xmsec.cc/tags/%E9%9A%90%E5%86%99%E6%9C%AF/"/>
+      <category term="隐写术" scheme="https://blog.xmsec.cc/tags/%E9%9A%90%E5%86%99%E6%9C%AF/"/>
     
-      <category term="ZIP" scheme="http://blog.xmsec.cc/tags/ZIP/"/>
+      <category term="ZIP" scheme="https://blog.xmsec.cc/tags/ZIP/"/>
     
   </entry>
   
   <entry>
     <title>CTF图片隐写术总结</title>
-    <link href="http://blog.xmsec.cc//blog/2016/06/23/CTF%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
-    <id>http://blog.xmsec.cc//blog/2016/06/23/CTF图片隐写术总结/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/06/23/CTF%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+    <id>https://blog.xmsec.cc//blog/2016/06/23/CTF图片隐写术总结/</id>
     <published>2016-06-23T04:12:23.000Z</published>
     <updated>2016-07-09T15:52:58.000Z</updated>
     
@@ -185,18 +185,18 @@
     </summary>
     
     
-      <category term="CTF" scheme="http://blog.xmsec.cc/tags/CTF/"/>
+      <category term="CTF" scheme="https://blog.xmsec.cc/tags/CTF/"/>
     
-      <category term="隐写术" scheme="http://blog.xmsec.cc/tags/%E9%9A%90%E5%86%99%E6%9C%AF/"/>
+      <category term="隐写术" scheme="https://blog.xmsec.cc/tags/%E9%9A%90%E5%86%99%E6%9C%AF/"/>
     
-      <category term="misc" scheme="http://blog.xmsec.cc/tags/misc/"/>
+      <category term="misc" scheme="https://blog.xmsec.cc/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>Hexo下FireBase访问统计</title>
-    <link href="http://blog.xmsec.cc//blog/2016/03/15/Hexo%E4%B8%8BFireBase%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1/"/>
-    <id>http://blog.xmsec.cc//blog/2016/03/15/Hexo下FireBase访问统计/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/03/15/Hexo%E4%B8%8BFireBase%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1/"/>
+    <id>https://blog.xmsec.cc//blog/2016/03/15/Hexo下FireBase访问统计/</id>
     <published>2016-03-15T04:12:23.000Z</published>
     <updated>2016-03-27T14:07:52.000Z</updated>
     
@@ -211,16 +211,16 @@
     </summary>
     
     
-      <category term="Blog" scheme="http://blog.xmsec.cc/tags/Blog/"/>
+      <category term="Blog" scheme="https://blog.xmsec.cc/tags/Blog/"/>
     
-      <category term="Hexo" scheme="http://blog.xmsec.cc/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://blog.xmsec.cc/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>在github上搭建Hexo Blog</title>
-    <link href="http://blog.xmsec.cc//blog/2016/03/06/Hexo-Blog/"/>
-    <id>http://blog.xmsec.cc//blog/2016/03/06/Hexo-Blog/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/03/06/Hexo-Blog/"/>
+    <id>https://blog.xmsec.cc//blog/2016/03/06/Hexo-Blog/</id>
     <published>2016-03-06T04:12:23.000Z</published>
     <updated>2016-03-13T12:50:24.000Z</updated>
     
@@ -235,16 +235,16 @@
     </summary>
     
     
-      <category term="Blog" scheme="http://blog.xmsec.cc/tags/Blog/"/>
+      <category term="Blog" scheme="https://blog.xmsec.cc/tags/Blog/"/>
     
-      <category term="Hexo" scheme="http://blog.xmsec.cc/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://blog.xmsec.cc/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Instructions of Physics Bird</title>
-    <link href="http://blog.xmsec.cc//blog/2016/02/05/Instructions-of-Physics-Bird/"/>
-    <id>http://blog.xmsec.cc//blog/2016/02/05/Instructions-of-Physics-Bird/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/02/05/Instructions-of-Physics-Bird/"/>
+    <id>https://blog.xmsec.cc//blog/2016/02/05/Instructions-of-Physics-Bird/</id>
     <published>2016-02-05T04:12:00.000Z</published>
     <updated>2016-08-20T04:05:22.000Z</updated>
     
@@ -257,14 +257,14 @@
     </summary>
     
     
-      <category term="Android" scheme="http://blog.xmsec.cc/tags/Android/"/>
+      <category term="Android" scheme="https://blog.xmsec.cc/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>物理实燕APP 2.6</title>
-    <link href="http://blog.xmsec.cc//blog/2016/02/04/Physics-Bird/"/>
-    <id>http://blog.xmsec.cc//blog/2016/02/04/Physics-Bird/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/02/04/Physics-Bird/"/>
+    <id>https://blog.xmsec.cc//blog/2016/02/04/Physics-Bird/</id>
     <published>2016-02-04T04:12:00.000Z</published>
     <updated>2019-04-09T12:09:11.256Z</updated>
     
@@ -283,20 +283,20 @@
     </summary>
     
     
-      <category term="Android" scheme="http://blog.xmsec.cc/tags/Android/"/>
+      <category term="Android" scheme="https://blog.xmsec.cc/tags/Android/"/>
     
-      <category term="Material Design" scheme="http://blog.xmsec.cc/tags/Material-Design/"/>
+      <category term="Material Design" scheme="https://blog.xmsec.cc/tags/Material-Design/"/>
     
-      <category term="IOS" scheme="http://blog.xmsec.cc/tags/IOS/"/>
+      <category term="IOS" scheme="https://blog.xmsec.cc/tags/IOS/"/>
     
-      <category term="swift" scheme="http://blog.xmsec.cc/tags/swift/"/>
+      <category term="swift" scheme="https://blog.xmsec.cc/tags/swift/"/>
     
   </entry>
   
   <entry>
     <title>Material Design libs ‘colection’ </title>
-    <link href="http://blog.xmsec.cc//blog/2016/01/28/Material-Design/"/>
-    <id>http://blog.xmsec.cc//blog/2016/01/28/Material-Design/</id>
+    <link href="https://blog.xmsec.cc//blog/2016/01/28/Material-Design/"/>
+    <id>https://blog.xmsec.cc//blog/2016/01/28/Material-Design/</id>
     <published>2016-01-28T04:12:23.000Z</published>
     <updated>2016-09-25T07:15:34.000Z</updated>
     
@@ -311,16 +311,16 @@
     </summary>
     
     
-      <category term="Android" scheme="http://blog.xmsec.cc/tags/Android/"/>
+      <category term="Android" scheme="https://blog.xmsec.cc/tags/Android/"/>
     
-      <category term="Material Design" scheme="http://blog.xmsec.cc/tags/Material-Design/"/>
+      <category term="Material Design" scheme="https://blog.xmsec.cc/tags/Material-Design/"/>
     
   </entry>
   
   <entry>
     <title>ZIP crack</title>
-    <link href="http://blog.xmsec.cc//blog/2015/10/10/ZIP-pkcrack/"/>
-    <id>http://blog.xmsec.cc//blog/2015/10/10/ZIP-pkcrack/</id>
+    <link href="https://blog.xmsec.cc//blog/2015/10/10/ZIP-pkcrack/"/>
+    <id>https://blog.xmsec.cc//blog/2015/10/10/ZIP-pkcrack/</id>
     <published>2015-10-10T14:12:00.000Z</published>
     <updated>2019-04-30T08:29:01.753Z</updated>
     
@@ -358,16 +358,16 @@
     </summary>
     
     
-      <category term="misc" scheme="http://blog.xmsec.cc/tags/misc/"/>
+      <category term="misc" scheme="https://blog.xmsec.cc/tags/misc/"/>
     
-      <category term="crypto" scheme="http://blog.xmsec.cc/tags/crypto/"/>
+      <category term="crypto" scheme="https://blog.xmsec.cc/tags/crypto/"/>
     
   </entry>
   
   <entry>
     <title>Use Octopress</title>
-    <link href="http://blog.xmsec.cc//blog/2015/10/02/Use-Ocopress/"/>
-    <id>http://blog.xmsec.cc//blog/2015/10/02/Use-Ocopress/</id>
+    <link href="https://blog.xmsec.cc//blog/2015/10/02/Use-Ocopress/"/>
+    <id>https://blog.xmsec.cc//blog/2015/10/02/Use-Ocopress/</id>
     <published>2015-10-02T14:12:23.000Z</published>
     <updated>2016-09-15T12:49:52.000Z</updated>
     
@@ -413,16 +413,16 @@
     </summary>
     
     
-      <category term="Blog" scheme="http://blog.xmsec.cc/tags/Blog/"/>
+      <category term="Blog" scheme="https://blog.xmsec.cc/tags/Blog/"/>
     
-      <category term="Octopress" scheme="http://blog.xmsec.cc/tags/Octopress/"/>
+      <category term="Octopress" scheme="https://blog.xmsec.cc/tags/Octopress/"/>
     
   </entry>
   
   <entry>
     <title>Welcome to xmsec</title>
-    <link href="http://blog.xmsec.cc//blog/2015/09/16/welcome-to-xmsec/"/>
-    <id>http://blog.xmsec.cc//blog/2015/09/16/welcome-to-xmsec/</id>
+    <link href="https://blog.xmsec.cc//blog/2015/09/16/welcome-to-xmsec/"/>
+    <id>https://blog.xmsec.cc//blog/2015/09/16/welcome-to-xmsec/</id>
     <published>2015-09-16T14:12:23.000Z</published>
     <updated>2019-04-30T08:16:22.459Z</updated>
     
@@ -438,7 +438,7 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://blog.xmsec.cc/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://blog.xmsec.cc/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
