@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="起因发现 10.13 自带的 php7 不能安装 xdebug… 否则需要关闭 SIP，算了不如自己再装一个。 前期准备 brew  自行安装 apache2.4 mac 自带 vscode 自行安装 xcode command-line-tool 自行安装 php7.1 后面说 xdebug 同上">
+<meta name="keywords" content="mac,xdebug,vscode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac debug PHP with xdebug in vscode">
+<meta property="og:url" content="http://blog.xmsec.cc/blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/index.html">
+<meta property="og:site_name" content="xmsec - 陌小生">
+<meta property="og:description" content="起因发现 10.13 自带的 php7 不能安装 xdebug… 否则需要关闭 SIP，算了不如自己再装一个。 前期准备 brew  自行安装 apache2.4 mac 自带 vscode 自行安装 xcode command-line-tool 自行安装 php7.1 后面说 xdebug 同上">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-01T10:04:18.151Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac debug PHP with xdebug in vscode">
+<meta name="twitter:description" content="起因发现 10.13 自带的 php7 不能安装 xdebug… 否则需要关闭 SIP，算了不如自己再装一个。 前期准备 brew  自行安装 apache2.4 mac 自带 vscode 自行安装 xcode command-line-tool 自行安装 php7.1 后面说 xdebug 同上">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="xmsec - 陌小生" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://blog.xmsec.cc/blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Mac debug PHP with xdebug in vscode | xmsec - 陌小生</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xmsec - 陌小生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stories and ideas we share. Security and Developing we focus.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.xmsec.cc/blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xmsec">
+      <meta itemprop="description" content="Stories and ideas we share. Security and Developing we focus.">
+      <meta itemprop="image" content="https://www.xmsec.cc/assets/img/user-image.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xmsec - 陌小生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mac debug PHP with xdebug in vscode
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-01 17:35:29 / 修改时间：18:04:18" itemprop="dateCreated datePublished" datetime="2019-05-01T17:35:29+08:00">2019-05-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>发现 10.13 自带的 php7 不能安装 xdebug… 否则需要关闭 SIP，算了不如自己再装一个。</p>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ol>
+<li>brew  自行安装</li>
+<li>apache2.4 mac 自带</li>
+<li>vscode 自行安装</li>
+<li>xcode command-line-tool 自行安装</li>
+<li>php7.1 后面说</li>
+<li>xdebug 同上</li>
+</ol>
+<a id="more"></a>
+<h2 id="php-7-1"><a href="#php-7-1" class="headerlink" title="php@7.1"></a><a href="mailto:php@7.1" target="_blank" rel="noopener">php@7.1</a></h2><p>brew 在新版中更新了 php 的位置，可以使用 brew search php 查看。</p>
+<p>这里安装 php 7.1 版本，安装命令 <code>brew install php@7.1</code></p>
+<p>最后安装完成的信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">To enable PHP in Apache add the following to httpd.conf and restart Apache:</span><br><span class="line">    LoadModule php7_module /usr/local/opt/php@7.1/lib/httpd/modules/libphp7.so</span><br><span class="line"></span><br><span class="line">    &lt;FilesMatch \.php$&gt;</span><br><span class="line">        SetHandler application/x-httpd-php</span><br><span class="line">    &lt;/FilesMatch&gt;</span><br><span class="line"></span><br><span class="line">Finally, check DirectoryIndex includes index.php</span><br><span class="line">    DirectoryIndex index.php index.html</span><br><span class="line"></span><br><span class="line">The php.ini and php-fpm.ini file can be found in:</span><br><span class="line">    /usr/local/etc/php/7.1/</span><br><span class="line"></span><br><span class="line">php@7.1 is keg-only, which means it was not symlinked into /usr/local,</span><br><span class="line">because this is an alternate version of another formula.</span><br><span class="line"></span><br><span class="line">If you need to have php@7.1 first in your PATH run:</span><br><span class="line">  echo &apos;export PATH=&quot;/usr/local/opt/php@7.1/bin:$PATH&quot;&apos; &gt;&gt; ~/.zshrc</span><br><span class="line">  echo &apos;export PATH=&quot;/usr/local/opt/php@7.1/sbin:$PATH&quot;&apos; &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line">For compilers to find php@7.1 you may need to set:</span><br><span class="line">  export LDFLAGS=&quot;-L/usr/local/opt/php@7.1/lib&quot;</span><br><span class="line">  export CPPFLAGS=&quot;-I/usr/local/opt/php@7.1/include&quot;</span><br></pre></td></tr></table></figure></p>
+<p>可参考其中配置，在 bash（zsh）中执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export PATH=&quot;/usr/local/opt/php@7.1/bin:$PATH&quot;&apos; &gt;&gt; ~/.zshrc</span><br><span class="line">echo &apos;export PATH=&quot;/usr/local/opt/php@7.1/sbin:$PATH&quot;&apos; &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>或者你确实需要替换系统 php，则执行 <code>brew link php@7.1</code> 会提示你下一步操作。</p>
+<p>另外，如果需要多版本切换，可参考：<br><a href="https://www.cnblogs.com/it-tsz/p/9311768.html" target="_blank" rel="noopener">https://www.cnblogs.com/it-tsz/p/9311768.html</a></p>
+<p>如果需要替换系统 apache，可参考：<br><a href="http://www.hangge.com/blog/cache/detail_2333.html" target="_blank" rel="noopener">http://www.hangge.com/blog/cache/detail_2333.html</a></p>
+<p>如果只是需要调试 php，暂不需要上面两步操作。</p>
+<h2 id="xdebug"><a href="#xdebug" class="headerlink" title="xdebug"></a>xdebug</h2><p>两种方式安装，先介绍简单的：</p>
+<h3 id="pecl-安装"><a href="#pecl-安装" class="headerlink" title="pecl 安装"></a>pecl 安装</h3><p>通过 brew 安装的 php 已经添加了这个功能，可通过<br><code>pecl install xdebug-2.7.1</code></p>
+<p>版本号需要再次确认下，可以参看第二种方法确认。</p>
+<p>这种方式安装的 xdebug 自动配置在 php.ini 第一行，最好调整至最后一行，见收尾部分。</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><p><a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">https://xdebug.org/wizard.php</a></p>
+<p>访问上述页面，将 <code>phpinfo()</code> 信息或者 <code>php -i</code> 提交，可以得到编译安装方式。在这里我的信息是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Download xdebug-2.7.1.tgz</span><br><span class="line">Install the pre-requisites for compiling PHP extensions. These packages are often called &apos;php-dev&apos;, or &apos;php-devel&apos;, &apos;automake&apos; and &apos;autoconf&apos;.</span><br><span class="line">Unpack the downloaded file with tar -xvzf xdebug-2.7.1.tgz</span><br><span class="line">Run: cd xdebug-2.7.1</span><br><span class="line">Run: phpize (See the FAQ if you don&apos;t have phpize).</span><br><span class="line"></span><br><span class="line">As part of its output it should show:</span><br><span class="line"></span><br><span class="line">Configuring for:</span><br><span class="line">...</span><br><span class="line">Zend Module Api No:      20160303</span><br><span class="line">Zend Extension Api No:   320160303</span><br><span class="line">If it does not, you are using the wrong phpize. Please follow this FAQ entry and skip the next step.</span><br><span class="line"></span><br><span class="line">Run: ./configure</span><br><span class="line">Run: make</span><br><span class="line">Run: cp modules/xdebug.so /usr/local/lib/php/pecl/20160303</span><br><span class="line">Update /usr/local/etc/php/7.1/php.ini and change the line</span><br><span class="line">zend_extension = /usr/local/lib/php/pecl/20160303/xdebug.so</span><br><span class="line">Make sure that zend_extension = /usr/local/lib/php/pecl/20160303/xdebug.so is below the line for OPcache.</span><br></pre></td></tr></table></figure>
+<p>按照他的顺序来就可以。</p>
+<h3 id="收尾"><a href="#收尾" class="headerlink" title="收尾"></a>收尾</h3><p>在 php.ini 末尾添加如下信息（端口如果冲突可以修改为其他端口）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">zend_extension=/usr/local/lib/php/pecl/20160303/xdebug.so</span><br><span class="line">xdebug.remote_enable=1</span><br><span class="line">xdebug.remote_autostart=1</span><br><span class="line">xdebug.remote_connect_back=1</span><br><span class="line">xdebug.remote_port=9000</span><br><span class="line">xdebug.scream=0</span><br><span class="line">xdebug.show_local_vars=1</span><br></pre></td></tr></table></figure></p>
+<h2 id="apache-httpd-conf"><a href="#apache-httpd-conf" class="headerlink" title="apache - httpd.conf"></a>apache - httpd.conf</h2><p>找到 /etc/apache2/httpd.conf 文件，更改 php7 那一行为如下两行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LoadModule php7_module /usr/local/opt/php@7.1/lib/httpd/modules/libphp7.so</span><br><span class="line">#LoadModule php7_module libexec/apache2/libphp7.so</span><br></pre></td></tr></table></figure></p>
+<h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><ol>
+<li>搜索 php debug 进行安装</li>
+<li>设置 - setting.json - 添加配置 “php.validate.executablePath”: “<a href="mailto:/usr/local/opt/php@7.1" target="_blank" rel="noopener">/usr/local/opt/php@7.1</a>/bin/php”</li>
+<li>打开工程文件夹</li>
+<li>切换到调试页面，选 php 并（自动）创建配置项（如果改了端口需要同步修改下端口信息）</li>
+<li>调试运行，浏览器访问，即可</li>
+</ol>
+<h2 id="扫尾"><a href="#扫尾" class="headerlink" title="扫尾"></a>扫尾</h2><p>启动 node 报错了，因为 php 用到的一个依赖和 node 冲突了，参考如下解决就行了，没仔细研究。<br><a href="https://www.jianshu.com/p/f276676a464e" target="_blank" rel="noopener">https://www.jianshu.com/p/f276676a464e</a><br><a href="https://segmentfault.com/a/1190000018065230?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000018065230?utm_source=tag-newest</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>xmsec</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.xmsec.cc/blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/" title="Mac debug PHP with xdebug in vscode">http://blog.xmsec.cc/blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mac/" rel="tag"># mac</a>
+          
+            <a href="/tags/xdebug/" rel="tag"># xdebug</a>
+          
+            <a href="/tags/vscode/" rel="tag"># vscode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/04/30/web-crypto/" rel="next" title="Web中的密码学">
+                <i class="fa fa-chevron-left"></i> Web中的密码学
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://www.xmsec.cc/assets/img/user-image.png" alt="xmsec">
+            
+              <p class="site-author-name" itemprop="name">xmsec</p>
+              <div class="site-description motion-element" itemprop="description">Stories and ideas we share. Security and Developing we focus.</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前期准备"><span class="nav-number">2.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-7-1"><span class="nav-number">3.</span> <span class="nav-text">php@7.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xdebug"><span class="nav-number">4.</span> <span class="nav-text">xdebug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pecl-安装"><span class="nav-number">4.1.</span> <span class="nav-text">pecl 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译安装"><span class="nav-number">4.2.</span> <span class="nav-text">编译安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收尾"><span class="nav-number">4.3.</span> <span class="nav-text">收尾</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apache-httpd-conf"><span class="nav-number">5.</span> <span class="nav-text">apache - httpd.conf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode"><span class="nav-number">6.</span> <span class="nav-text">vscode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫尾"><span class="nav-number">7.</span> <span class="nav-text">扫尾</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xmsec</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
