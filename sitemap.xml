@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.xmsec.cc/blog/2019/06/03/macos-collections/</loc>
+    
+    <lastmod>2019-06-03T06:54:36.609Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.xmsec.cc/blog/2019/05/01/mac-debug-php-with-xdebug-in-vscode/</loc>
     
     <lastmod>2019-05-03T09:56:03.986Z</lastmod>
