@@ -375,7 +375,7 @@
                 
               
 
-              <time title="创建时间：2019-06-03 14:53:07 / 修改时间：14:54:36" itemprop="dateCreated datePublished" datetime="2019-06-03T14:53:07+08:00">2019-06-03</time>
+              <time title="创建时间：2019-06-03 14:53:07 / 修改时间：15:03:16" itemprop="dateCreated datePublished" datetime="2019-06-03T14:53:07+08:00">2019-06-03</time>
             
 
             
@@ -438,7 +438,7 @@
 </li>
 </ul>
 <p>or proxychains4</p>
-<h2 id="settings"><a href="#settings" class="headerlink" title="settings"></a>settings</h2><h3 id="双网卡-route"><a href="#双网卡-route" class="headerlink" title="双网卡 route"></a>双网卡 route</h3><p><code>sudo route add -net 10.10.15.0 -netmask 255.255.255.0 10.10.15.255</code>  ip mask gateway 适用内网与外网网关不同时</p>
+<h3 id="双网卡-route"><a href="#双网卡-route" class="headerlink" title="双网卡 route"></a>双网卡 route</h3><p><code>sudo route add -net 10.10.15.0 -netmask 255.255.255.0 10.10.15.255</code>  ip mask gateway 适用内网与外网网关不同时</p>
 <h2 id="brew"><a href="#brew" class="headerlink" title="brew"></a>brew</h2><h3 id="替换homebrew默认源"><a href="#替换homebrew默认源" class="headerlink" title="替换homebrew默认源"></a>替换homebrew默认源</h3><p>替换brew.git:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;</span><br><span class="line">git remote set-url origin https://mirrors.ustc.edu.cn/brew.git</span><br></pre></td></tr></table></figure></p>
 <p>替换homebrew-core.git:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</span><br><span class="line">git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br></pre></td></tr></table></figure></p>
 <p>如果替换源之后brew update 没反应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure></p>
@@ -448,11 +448,23 @@
 <p>对于bash用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.bash_profile</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
 <p>对于zsh用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure></p>
 <h3 id="install-command"><a href="#install-command" class="headerlink" title="install command"></a>install command</h3><p><code>brew info python</code><br><code>brew install python</code><br><code>brew link python</code><br><code>brew cleanup</code>    </p>
-<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><ul>
+<h2 id="system-setting"><a href="#system-setting" class="headerlink" title="system setting"></a>system setting</h2><h3 id="volumn"><a href="#volumn" class="headerlink" title="volumn"></a>volumn</h3><ul>
 <li>通信自动音量调整关闭<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通信前</span><br><span class="line">printf &quot;p *(char*)(void(*)())AudioDeviceDuck=0xc3\nq&quot; | lldb -n QQ</span><br><span class="line">printf &quot;p *(char*)(void(*)())AudioDeviceDuck=0xc3\nq&quot; | lldb -n WeChat</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h2><h3 id="reource-url"><a href="#reource-url" class="headerlink" title="reource url"></a>reource url</h3><ul>
+<h2 id="docker-settings"><a href="#docker-settings" class="headerlink" title="docker settings"></a>docker settings</h2><ul>
+<li>mirror<ul>
+<li>RUN sed -i ‘s/archive.ubuntu.com/mirrors.ustc.edu.cn/g’ /etc/apt/sources.list</li>
+</ul>
+</li>
+<li>mysql5.5 error<ul>
+<li>run into this under <strong>ubuntu14.04</strong> with updating password</li>
+<li>[ERROR] Fatal error: Can’t open and lock privilege tables: Got error 140 from storage engine</li>
+<li>chown -R mysql:mysql /var/lib/mysql /var/run/mysqld &amp;&amp; service mysql start</li>
+</ul>
+</li>
+</ul>
+<h2 id="software-collection"><a href="#software-collection" class="headerlink" title="software collection"></a>software collection</h2><h3 id="resource-url"><a href="#resource-url" class="headerlink" title="resource url"></a>resource url</h3><ul>
 <li><a href="https://bbs.feng.com/" target="_blank" rel="noopener">https://bbs.feng.com/</a></li>
 <li><a href="https://macbed.com" target="_blank" rel="noopener">https://macbed.com</a><h3 id="Basic-amp-Tools"><a href="#Basic-amp-Tools" class="headerlink" title="Basic &amp; Tools"></a>Basic &amp; Tools</h3></li>
 <li>vscode</li>
@@ -534,18 +546,6 @@
 <h3 id="office"><a href="#office" class="headerlink" title="office"></a>office</h3><ul>
 <li>office 2019<br><code>https://officecdn-microsoft-com.akamaized.net/pr/C1297A47-86C4-4C1F-97FA-950631F94777/MacAutoupdate/Microsoft_Office_16.25.19051201_Installer.pkg</code></li>
 <li>来源<br><a href="https://bbs.feng.com/read-htm-tid-10731033.html" target="_blank" rel="noopener">https://bbs.feng.com/read-htm-tid-10731033.html</a></li>
-</ul>
-<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><ul>
-<li>mirror<ul>
-<li>RUN sed -i ‘s/archive.ubuntu.com/mirrors.ustc.edu.cn/g’ /etc/apt/sources.list</li>
-</ul>
-</li>
-<li>mysql5.5 error<ul>
-<li>run into this under <strong>ubuntu14.04</strong> with updating password</li>
-<li>[ERROR] Fatal error: Can’t open and lock privilege tables: Got error 140 from storage engine</li>
-<li>chown -R mysql:mysql /var/lib/mysql /var/run/mysqld &amp;&amp; service mysql start</li>
-</ul>
-</li>
 </ul>
 
           
