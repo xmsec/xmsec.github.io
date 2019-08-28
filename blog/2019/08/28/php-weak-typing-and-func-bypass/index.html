@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/08/28/TJzA1XmHoi2n8wL.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/28/zxcmTaFZXGu7twi.png">
-<meta property="og:updated_time" content="2019-08-28T15:19:09.077Z">
+<meta property="og:updated_time" content="2019-08-28T15:30:16.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php 弱类型和函数小结">
 <meta name="twitter:description" content="弱类型先看下强类型和弱类型的区别。 强类型指的是每个变量和对象都必须具有声明类型，是在编译的时候就确定类型的数据，在执行时类型不能更改，代表语言如Java、C等；而弱类型在执行的时候才会确定类型， 代表语言如PHP、Python等。 强类型较安全，而且效率高；弱类型相比而言不安全 。 ==和======在进行比较的时候，会先判断两个变量的类型是否相等，再比较；==在进行比较的时候，会先将变量类型转">
@@ -405,7 +405,7 @@
                 
               
 
-              <time title="创建时间：2019-08-28 22:56:51 / 修改时间：23:19:09" itemprop="dateCreated datePublished" datetime="2019-08-28T22:56:51+08:00">2019-08-28</time>
+              <time title="创建时间：2019-08-28 22:56:51 / 修改时间：23:30:16" itemprop="dateCreated datePublished" datetime="2019-08-28T22:56:51+08:00">2019-08-28</time>
             
 
             
@@ -486,7 +486,7 @@
 <h3 id="md5-sha1-0e-弱类型碰撞"><a href="#md5-sha1-0e-弱类型碰撞" class="headerlink" title="md5 sha1 0e 弱类型碰撞"></a>md5 sha1 0e 弱类型碰撞</h3><p>又可参见：<a href="https://www.whitehatsec.com/blog/magic-hashes/" target="_blank" rel="noopener">https://www.whitehatsec.com/blog/magic-hashes/</a><br>该情形下的哈希碰撞是基于弱类型==或!=的。</p>
 <p>下面看个题目，大意是要输入一个字符串和数字类型，并且他们的md5值相等，就可以成功执行下一步语句 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if (isset($_GET[&apos;username&apos;]) &amp;&amp; isset($_GET[&apos;password&apos;])) &#123;</span><br><span class="line">	$logined = true;</span><br><span class="line">	$username = $_GET[&apos;username&apos;];</span><br><span class="line">	$password = $_GET[&apos;password&apos;];</span><br><span class="line"></span><br><span class="line">	if (!ctype_alpha($username)) &#123;$logined = false;&#125;</span><br><span class="line">	if (!is_numeric($password) ) &#123;$logined = false;&#125;</span><br><span class="line">	if (md5($username) != md5($password)) &#123;$logined = false;&#125;</span><br><span class="line">	if ($logined)&#123;</span><br><span class="line">		echo &quot;successful&quot;;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		echo &quot;login failed!&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">md5</span><br><span class="line">s1836677006a</span><br><span class="line">0e481036490867661113260034900752</span><br><span class="line">s1665632922a</span><br><span class="line">0e731198061491163073197128363787</span><br><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line"></span><br><span class="line">sha1</span><br><span class="line">10932435112</span><br><span class="line">0e07766915004133176347055865026311692244</span><br></pre></td></tr></table></figure>
-<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><p>1.<a href="https://www.mi1k7ea.com/2019/06/21/PHP%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%B0%8F%E7%BB%93/" target="_blank" rel="noopener">https://www.mi1k7ea.com/2019/06/21/PHP%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%B0%8F%E7%BB%93/</a><br>2.很多之前的笔记，无法一一列举</p>
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><p>大部分内容转载自来源 1，只进行了少量修改。<br>1.<a href="https://www.mi1k7ea.com/2019/06/21/PHP%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%B0%8F%E7%BB%93/" target="_blank" rel="noopener">https://www.mi1k7ea.com/2019/06/21/PHP%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%B0%8F%E7%BB%93/</a><br>2.很多之前的笔记，无法一一列举</p>
 
       
     </div>
