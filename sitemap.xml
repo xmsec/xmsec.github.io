@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.xmsec.cc/blog/2019/08/28/php-weak-typing-and-func-bypass/</loc>
+    
+    <lastmod>2019-08-28T15:19:09.077Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.xmsec.cc/blog/2019/06/03/macos-collections/</loc>
     
-    <lastmod>2019-08-16T09:47:26.401Z</lastmod>
+    <lastmod>2019-08-26T16:42:11.253Z</lastmod>
     
   </url>
   
@@ -30,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://blog.xmsec.cc/blog/2016/02/05/Instructions-of-Physics-Bird/</loc>
-    
-    <lastmod>2019-07-22T12:22:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.xmsec.cc/blog/2016/01/28/Material-Design/</loc>
     
     <lastmod>2019-07-22T12:22:58.000Z</lastmod>
@@ -44,7 +44,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xmsec.cc/blog/2016/02/04/Physics-Bird/</loc>
+    <loc>https://blog.xmsec.cc/blog/2016/02/05/Instructions-of-Physics-Bird/</loc>
     
     <lastmod>2019-07-22T12:22:58.000Z</lastmod>
     
@@ -65,6 +65,13 @@
   </url>
   
   <url>
+    <loc>https://blog.xmsec.cc/blog/2016/02/04/Physics-Bird/</loc>
+    
+    <lastmod>2019-07-22T12:22:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.xmsec.cc/blog/2015/10/10/ZIP-pkcrack/</loc>
     
     <lastmod>2019-07-22T12:22:58.000Z</lastmod>
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://blog.xmsec.cc/blog/2016/07/19/base64%E4%B8%AD%E6%96%87%E3%80%81%E4%B8%8E%E4%BD%9B%E8%AE%BA%E7%A6%85%E7%BC%96%E7%A0%81/</loc>
+    <loc>https://blog.xmsec.cc/blog/2016/09/10/blog-temporary-removed/</loc>
     
     <lastmod>2019-07-22T12:22:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.xmsec.cc/blog/2016/09/10/blog-temporary-removed/</loc>
+    <loc>https://blog.xmsec.cc/blog/2016/07/19/base64%E4%B8%AD%E6%96%87%E3%80%81%E4%B8%8E%E4%BD%9B%E8%AE%BA%E7%A6%85%E7%BC%96%E7%A0%81/</loc>
     
     <lastmod>2019-07-22T12:22:58.000Z</lastmod>
     
@@ -100,14 +107,14 @@
   </url>
   
   <url>
-    <loc>https://blog.xmsec.cc/blog/2015/09/16/welcome-to-xmsec/</loc>
+    <loc>https://blog.xmsec.cc/blog/2019/04/30/web-crypto/</loc>
     
     <lastmod>2019-07-22T12:22:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.xmsec.cc/blog/2019/04/30/web-crypto/</loc>
+    <loc>https://blog.xmsec.cc/blog/2015/09/16/welcome-to-xmsec/</loc>
     
     <lastmod>2019-07-22T12:22:58.000Z</lastmod>
     
