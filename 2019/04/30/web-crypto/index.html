@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="xmsec - 陌小生" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="0x00 Something这篇 web 中的密码学攻击滞留在博客好久了，因为详细写懒得动，简单写又太水，最后还是在这里水一下吧。包含：      Hash扩展长度攻击 Padding Oricle Attack Bit-flipping attack TO-DO">
+<meta name="keywords" content="web,密码学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web中的密码学">
+<meta property="og:url" content="https://blog.xmsec.cc/2019/04/30/web-crypto/index.html">
+<meta property="og:site_name" content="xmsec - 陌小生">
+<meta property="og:description" content="0x00 Something这篇 web 中的密码学攻击滞留在博客好久了，因为详细写懒得动，简单写又太水，最后还是在这里水一下吧。包含：      Hash扩展长度攻击 Padding Oricle Attack Bit-flipping attack TO-DO">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-22T12:22:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web中的密码学">
+<meta name="twitter:description" content="0x00 Something这篇 web 中的密码学攻击滞留在博客好久了，因为详细写懒得动，简单写又太水，最后还是在这里水一下吧。包含：      Hash扩展长度攻击 Padding Oricle Attack Bit-flipping attack TO-DO">
+  <link rel="canonical" href="https://blog.xmsec.cc/2019/04/30/web-crypto/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Web中的密码学 | xmsec - 陌小生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xmsec - 陌小生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Backup and Trashbin of xmsec.cc</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://blog.xmsec.cc/2019/04/30/web-crypto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xmsec">
+      <meta itemprop="description" content="Stories and ideas we share. Security and Developing we focus.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xmsec - 陌小生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Web中的密码学
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-30 16:05:51" itemprop="dateCreated datePublished" datetime="2019-04-30T16:05:51+08:00">2019-04-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-07-22 20:22:58" itemprop="dateModified" datetime="2019-07-22T20:22:58+08:00">2019-07-22</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/04/30/web-crypto/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/04/30/web-crypto/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="0x00-Something"><a href="#0x00-Something" class="headerlink" title="0x00 Something"></a>0x00 Something</h2><p>这篇 web 中的密码学攻击滞留在博客好久了，因为详细写懒得动，简单写又太水，最后还是在这里水一下吧。包含：    </p>
+<ol>
+<li>Hash扩展长度攻击</li>
+<li>Padding Oricle Attack</li>
+<li>Bit-flipping attack <em>TO-DO</em>  </li>
+</ol>
+<a id="more"></a>
+<h2 id="0x01-Hash扩展长度攻击"><a href="#0x01-Hash扩展长度攻击" class="headerlink" title="0x01 Hash扩展长度攻击"></a>0x01 Hash扩展长度攻击</h2><p>在<a href="http://www.xmsec.cc/jarvis-oj-writeup-part/" target="_blank" rel="noopener">某篇wp</a>中，为了填坑，写了关于此部分的理解。      </p>
+<p>MD5等hash算法会对输入进行分组并PADDING，来满足固定的长度，于是我们可以在原有的输入后手动增加PADDING字符，来保证原有的分组不被改变，并在原来的基础上添加新的输入。 </p>
+<p>PADDING:</p>
+<ol>
+<li>消息必须进行补位，即使得其长度在对 512 取模后的值为 448。也就是说，len(message) % 512 = 448。当消息长度不满 448 bit 时（注意是位，而不是字符串长度），消息长度达到 448 bit 即可。当然，如果消息长度已经达到 448 bit，也要进行补位。补位是必须的。   </li>
+<li>补位的方式的二进制表示是在消息的后面加上一个1，后面跟着无限个0，直到 len(message) % 512 = 448。在 16 进制下，我们需要在消息后补80，就是 2 进制的10000000。我们把消息abc进行补位到 448 bit，也就是 56 byte。    </li>
+<li>补位过后，第 57 个字节储存的是补位之前的消息长度。abc是 3 个字母，也就是 3 个字节，24 bit。换算成 16 进制为 0x18。其后跟着 7 个字节的 0x00，把消息补满 64 字节。 </li>
+</ol>
+<p>我们以例子说明：<br>比如对’admin’字符串进行md5加密，那么填充就应该是<br><code>&#39;61646d696e8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002800000000000000&#39;</code><br>‘61646d696e’是admin的hex编码，80是填充的第一字节，后面的28表示40bit，即5个字节，是小端。</p>
+<p>在采用MD5(SALT+SECRET)等类似方式时，由于未知量拼接后在SECRET前面，导致可以在SECRET后添加PADDING字符，在不知道salt的情况下，通过已知的一对VALUE-HASH值，枸造出一对新的VALUE-HASH值（value在原来的基础上在末尾添加额外数据）。  </p>
+<p>亦可参考：<a href="https://seaii-blog.com/index.php/2017/05/12/56.html" target="_blank" rel="noopener">https://seaii-blog.com/index.php/2017/05/12/56.html</a>  </p>
+<h2 id="0x02-Padding-Oricle-Attack"><a href="#0x02-Padding-Oricle-Attack" class="headerlink" title="0x02 Padding Oricle Attack"></a>0x02 Padding Oricle Attack</h2><p>原理请见：</p>
+<ol>
+<li><a href="http://blog.zhaojie.me/2010/10/padding-oracle-attack-in-detail.html" target="_blank" rel="noopener">http://blog.zhaojie.me/2010/10/padding-oracle-attack-in-detail.html</a></li>
+<li><a href="http://www.icylife.net/yunshu/attachments/Padding-Oracle-Attack.pdf" target="_blank" rel="noopener">http://www.icylife.net/yunshu/attachments/Padding-Oracle-Attack.pdf</a></li>
+</ol>
+<p>如果看原理的话，个人感觉最好的便是白帽子讲 web 安全，其次是上面两篇。其他的写的都没有上述的三篇清晰。</p>
+<p>遇到的题目：<br><a href="https://www.xmsec.cc/ddctf-2019-writeup/#%E5%86%8D%E6%9D%A5%E4%B8%80%E6%9D%AFjava" target="_blank" rel="noopener">https://www.xmsec.cc/ddctf-2019-writeup/#%E5%86%8D%E6%9D%A5%E4%B8%80%E6%9D%AFjava</a></p>
+<p>其中 token 在 cookie 中，值为 <code>UGFkT3JhY2xlOml2L2NiY8O+7uQmXKFqNVUuI9c7VBe42FqRvernmQhsxyPnvxaF</code></p>
+<p>显然提示了 Padding Oricle，根据原理可写出上文中的脚本，爆出明文 <code>{&quot;id&quot;:100,&quot;roleAdmin&quot;:false}</code>，最后根据 IV / 中间值 / 密文的关系构造新的明文 <code>{&quot;id&quot;:100,&quot;roleAdmin&quot;:true}</code> 即可。</p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p><a href="https://seaii-blog.com/index.php/2017/05/13/60.html" target="_blank" rel="noopener">https://seaii-blog.com/index.php/2017/05/13/60.html</a></p>
+<p>原来一直在看这篇，但是作者讲的细节也有一些欠缺，但是作为复习来看还是可以的。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>xmsec</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.xmsec.cc/2019/04/30/web-crypto/" title="Web中的密码学">https://blog.xmsec.cc/2019/04/30/web-crypto/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/web/" rel="tag"># web</a>
+            
+              <a href="/tags/密码学/" rel="tag"># 密码学</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/04/26/ctf-command-notes/" rel="next" title="CTF运维命令手记">
+                  <i class="fa fa-chevron-left"></i> CTF运维命令手记
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/05/01/mac-debug-php-with-xdebug-in-vscode/" rel="prev" title="Mac debug PHP with xdebug in vscode">
+                  Mac debug PHP with xdebug in vscode <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-Something"><span class="nav-number">1.</span> <span class="nav-text">0x00 Something</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-Hash扩展长度攻击"><span class="nav-number">2.</span> <span class="nav-text">0x01 Hash扩展长度攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-Padding-Oricle-Attack"><span class="nav-number">3.</span> <span class="nav-text">0x02 Padding Oricle Attack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">4.</span> <span class="nav-text">TODO</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xmsec</p>
+  <div class="site-description" itemprop="description">Stories and ideas we share. Security and Developing we focus.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xmsec</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'dmQXe8erVgB5djAltEoH1TBf-MdYXbMMI',
+    appKey: 'JfpRlyAfmqjkjkU5WdvM7uKH',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

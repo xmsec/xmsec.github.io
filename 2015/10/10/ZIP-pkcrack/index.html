@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="xmsec - 陌小生" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="ZIP密码破解——明文攻击—— evalsafe group介绍： 随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。  在介绍这三种方法之前，我先给大家介绍几个工具： AZPR : http://www.elcomsoft.com UZPC : http://www.chat.ru/~m53group">
+<meta name="keywords" content="misc,crypto">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZIP crack">
+<meta property="og:url" content="https://blog.xmsec.cc/2015/10/10/ZIP-pkcrack/index.html">
+<meta property="og:site_name" content="xmsec - 陌小生">
+<meta property="og:description" content="ZIP密码破解——明文攻击—— evalsafe group介绍： 随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。  在介绍这三种方法之前，我先给大家介绍几个工具： AZPR : http://www.elcomsoft.com UZPC : http://www.chat.ru/~m53group">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://i.imgur.com/UTJFvY5.png">
+<meta property="og:updated_time" content="2019-07-22T12:22:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ZIP crack">
+<meta name="twitter:description" content="ZIP密码破解——明文攻击—— evalsafe group介绍： 随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。  在介绍这三种方法之前，我先给大家介绍几个工具： AZPR : http://www.elcomsoft.com UZPC : http://www.chat.ru/~m53group">
+<meta name="twitter:image" content="http://i.imgur.com/UTJFvY5.png">
+  <link rel="canonical" href="https://blog.xmsec.cc/2015/10/10/ZIP-pkcrack/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>ZIP crack | xmsec - 陌小生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xmsec - 陌小生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Backup and Trashbin of xmsec.cc</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://blog.xmsec.cc/2015/10/10/ZIP-pkcrack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xmsec">
+      <meta itemprop="description" content="Stories and ideas we share. Security and Developing we focus.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xmsec - 陌小生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">ZIP crack
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2015-10-10 22:12:00" itemprop="dateCreated datePublished" datetime="2015-10-10T22:12:00+08:00">2015-10-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-07-22 20:22:58" itemprop="dateModified" datetime="2019-07-22T20:22:58+08:00">2019-07-22</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2015/10/10/ZIP-pkcrack/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2015/10/10/ZIP-pkcrack/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="ZIP密码破解——明文攻击"><a href="#ZIP密码破解——明文攻击" class="headerlink" title="ZIP密码破解——明文攻击"></a>ZIP密码破解——明文攻击</h3><h4 id="——-evalsafe-group"><a href="#——-evalsafe-group" class="headerlink" title="—— evalsafe group"></a>—— evalsafe group</h4><p><strong>介绍：</strong></p>
+<p>随机计算机性能的提高，很多人可能觉得找到一个zip文件的密码是一件很简单的事情。通常，破解zip文件有三种方法：暴力破解、字典攻击，以及明文攻击。</p>
+<blockquote>
+<p>在介绍这三种方法之前，我先给大家介绍几个工具：</p>
+<p>AZPR : <a href="http://www.elcomsoft.com" target="_blank" rel="noopener">http://www.elcomsoft.com</a></p>
+<p>UZPC : <a href="http://www.chat.ru/~m53group" target="_blank" rel="noopener">http://www.chat.ru/~m53group</a></p>
+<p>PKCrack : <a href="http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html" target="_blank" rel="noopener">http://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html</a></p>
+</blockquote>
+<p>具体怎么使用，可以参照他们的文档，很详细。当然，你也可以通过搜索引擎选择其他的工具。</p>
+<ul>
+<li>第一步 </li>
+</ul>
+<pre><code>了解目标文件
+俗话说，知己知彼，百战不殆。
+在进行破解之前，全面了解加密的文件可以帮助我们获得很多有用的信息。比如，用WinRAR（windows）或者‘unzip -l’（linux）命令来?获取压缩包的目录结构，和它所包含的文件信息。你时刻要提醒自己注意&gt;的是，有没有可能知道某个加密文件的部分信息。比如说，一个简单的文本文件（readme.txt），或者通用的dll文件（VBXXX.dll、MFCXX.dll），或者是一个通用的.exe文件（SETUP.EXC）。尽可能的去发现任何你可能发现的东西，这一点非常重要。如果你得不到加密文件里的任何片段，那么很遗憾，你将无法使用明文攻击这一最有效的破解利器。
+</code></pre><p>破解的三种方法：</p>
+<ul>
+<li><p>暴力破解。这是最花时间的一种破解方式，除此之外你还能期待些什么？正如它的名字所表达的，暴力破解就是不断的去尝试所有可能的密码。如果密码比较短，或许在短时间内可以找到正确的密码。但是如果比较长，比如说用64个字符长的字符串来做密码的话，可能你重生十次后发现依然未能找到答案。</p>
+</li>
+<li><p>字典攻击。相比于暴力破解这种弱智儿童，字典攻击大概就是三岁小孩的智商。它使用了一个字典文件，然后一一尝试文件中的每个密码。现在在网络上有很多的人相互共享自己的字典文件，这使得字典攻击比暴力破解有效率得多。尤其是当目标文件是用一个弱密码进行保护的时候，字典攻击效率较高。但是，由于字典攻击没有囊括所有可能的密码，所以对于强密码保护的zip文件，字典攻击毫无办法。</p>
+</li>
+</ul>
+<p>最有意思的一种方法：</p>
+<ul>
+<li>明文攻击。这是到目前为止最智能的一种攻击方法，但只有PKCrack可以做到。眼见为实，你可以亲自尝试一下。但是首先，你需要一些前提条件：<br>一个加密的压缩文件<br>了解压缩文件的zip版本（比如加密平台、zip版本号等，可以通过文件属性了解。如果是linux平台，用unzip -v命令可以查看一个zip包的详细信息，包括加密算法等。 知道压缩包里某个文件的部分连续内容（至少12字节）</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>第二步</li>
+</ul>
+<p> 破解</p>
+<p>如果你已经知道加密文件的部分内容，比如在某个网站上发现了它的readme.txt文件，你就可以开始尝试破解了。首先，将这个明文文件打包成zip包，比如将readme.txt打包成readme.zip。打包完成后，需要确认二者采用的压缩算法相同。一个简单的判断方法是用winRAR打开文件，同一个文件压缩后的体积是否相同。如果相同，基本可以说明你用的压缩算法是正确的。如果不同，就尝试另一种压缩算法。</p>
+<p>现在，你有了两个文件：</p>
+<ol>
+<li>加密了的目标文件crypt.zip(1.zip)</li>
+<li>你获取到的明文（readme.txt）生成的zip包plain.zip(readme.zip)</li>
+</ol>
+<p>假设两个文件的结构如下：<br>Crypt.zip</p>
+<pre><code>-- file1.txt
+-- readme.txt
+</code></pre><p>Plain.zip</p>
+<p>|– readme.txt</p>
+<p>然后，通过控制台调用pkcrack：<br>pkcrack –c readme.txt –p readme.txt –C 1.zip –P readme.zip -d de.zip</p>
+<p>几个参数的意义如下：</p>
+<p>-C : 要破解的目标文件（含路径）</p>
+<p>-c ：破解文件中的明文文件的名字（其路径不包括系统路径，从zip文件一层开始）</p>
+<p>-P ：压缩后的明文文件</p>
+<p>-p : 压缩的明文文件中明文文件的名字（也就是readme.txt在plain.zip中的位置）</p>
+<p>如下是一个解密过程的截图：</p>
+<p><img src="http://i.imgur.com/UTJFvY5.png" alt></p>
+<p>这里有一个要注意的地方：pkcrack在vista和win7下面无法正常运行，所以请保证操作系统是xp或者linux。</p>
+<p>pkcrack还有一个重要的选项是-d，后面跟一个文件名，比如decrypt.zip，表示解密后的zip文件输出。虽然在这个例子中，我没有用到这个选项，但是强烈推荐使用这一选项。如果不用这一选项，解密的时间非常长，而使用这一选项的话，一般只要几分钟。至于为什么不用会变慢，大家可以参照它的readme文档，大概是跟一个叫做findkey的程序有关，这里就不多解释了。</p>
+<blockquote>
+<p>如何简单的避免密码破解呢？<br>对于明文攻击，最简单有效的方法是进行两次zip加密，这样明文文件的信息就不会暴露在破解者的眼皮底下。对于字典攻击，避免使用弱密码，采用数字加字符的方式生成密码。对于暴力破解，采用7个字符以上的密码就可以让破解者见鬼去了。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>资料引用自<a href="http://blog.csdn.net/jiangwlee/article/details/6911087" target="_blank" rel="noopener">CSDN</a></p>
+</blockquote>
+<hr>
+<h2 id="样例测试："><a href="#样例测试：" class="headerlink" title="样例测试："></a>样例测试：</h2><blockquote>
+<p>样例下载 XDCTF 2015 MISC 200</p>
+</blockquote>
+<p>链接: <a href="http://pan.baidu.com/s/1hqLcqbi" target="_blank" rel="noopener">http://pan.baidu.com/s/1hqLcqbi</a> 密码: 2nmd</p>
+<p>简要测试步骤：</p>
+<ol>
+<li>binwalk扫描</li>
+<li>foremost提取</li>
+<li>观察<a href="http://baike.baidu.com/link?url=K0e8OhlC_VBRKJnMIG4ndBVF5d1bXgADWgm8RSnTMYC-PUeP4g4TuHJNeTCJMJ0VveaUK8rxEZ30HK4-4LEfyK" target="_blank" rel="noopener">CRC32(百科链接)</a></li>
+<li>提取文件组装</li>
+<li>pkcrack破解<br>测试图见上文。</li>
+</ol>
+<p><strong>xmsec</strong></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>xmsec</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.xmsec.cc/2015/10/10/ZIP-pkcrack/" title="ZIP crack">https://blog.xmsec.cc/2015/10/10/ZIP-pkcrack/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/misc/" rel="tag"># misc</a>
+            
+              <a href="/tags/crypto/" rel="tag"># crypto</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2015/10/02/Use-Ocopress/" rel="next" title="Use Octopress">
+                  <i class="fa fa-chevron-left"></i> Use Octopress
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2016/01/28/Material-Design/" rel="prev" title="Material Design libs ‘colection’ ">
+                  Material Design libs ‘colection’  <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZIP密码破解——明文攻击"><span class="nav-number">1.</span> <span class="nav-text">ZIP密码破解——明文攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#——-evalsafe-group"><span class="nav-number">1.1.</span> <span class="nav-text">—— evalsafe group</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例测试："><span class="nav-number"></span> <span class="nav-text">样例测试：</span></a></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xmsec</p>
+  <div class="site-description" itemprop="description">Stories and ideas we share. Security and Developing we focus.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xmsec</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'dmQXe8erVgB5djAltEoH1TBf-MdYXbMMI',
+    appKey: 'JfpRlyAfmqjkjkU5WdvM7uKH',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="xmsec - 陌小生" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="引言一直没有把用到的系统命令系统整理一下，想着博客搁置好久了，好些内容也在之前的随笔写了些，但是混合起来还是干货不足，现在这里划一划（吧。 不定期更新中">
+<meta name="keywords" content="CTF,运维">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF运维命令手记">
+<meta property="og:url" content="https://blog.xmsec.cc/2019/04/26/ctf-command-notes/index.html">
+<meta property="og:site_name" content="xmsec - 陌小生">
+<meta property="og:description" content="引言一直没有把用到的系统命令系统整理一下，想着博客搁置好久了，好些内容也在之前的随笔写了些，但是混合起来还是干货不足，现在这里划一划（吧。 不定期更新中">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ws1.sinaimg.cn/large/005CZNr7ly1g2gapvpd4vj30ny0mmq4z.jpg">
+<meta property="og:updated_time" content="2019-07-22T12:22:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CTF运维命令手记">
+<meta name="twitter:description" content="引言一直没有把用到的系统命令系统整理一下，想着博客搁置好久了，好些内容也在之前的随笔写了些，但是混合起来还是干货不足，现在这里划一划（吧。 不定期更新中">
+<meta name="twitter:image" content="http://ws1.sinaimg.cn/large/005CZNr7ly1g2gapvpd4vj30ny0mmq4z.jpg">
+  <link rel="canonical" href="https://blog.xmsec.cc/2019/04/26/ctf-command-notes/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CTF运维命令手记 | xmsec - 陌小生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xmsec - 陌小生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Backup and Trashbin of xmsec.cc</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://blog.xmsec.cc/2019/04/26/ctf-command-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xmsec">
+      <meta itemprop="description" content="Stories and ideas we share. Security and Developing we focus.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xmsec - 陌小生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CTF运维命令手记
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-26 19:31:45" itemprop="dateCreated datePublished" datetime="2019-04-26T19:31:45+08:00">2019-04-26</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-07-22 20:22:58" itemprop="dateModified" datetime="2019-07-22T20:22:58+08:00">2019-07-22</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/04/26/ctf-command-notes/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/04/26/ctf-command-notes/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>一直没有把用到的系统命令系统整理一下，想着博客搁置好久了，好些内容也在之前的随笔写了些，但是混合起来还是干货不足，现在这里划一划（吧。</p>
+<p>不定期更新中</p>
+<a id="more"></a>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><ul>
+<li>进入容器 bash<br><code>docker exec -it container-id /bin/[ba]sh</code></li>
+<li>新建容器<br><code>docker run -it[d] [--rm] -v hostdir:vdir -p hostp:vp [--name xxx] /file/to/run</code></li>
+<li>build image<br><code>docker build ./</code> </li>
+<li>清掉终止的容器<br><code>docker rm $(docker ps -aq)</code></li>
+</ul>
+<h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker compose"></a>docker compose</h2><ul>
+<li>up</li>
+<li>down</li>
+<li>restart</li>
+</ul>
+<h2 id="文件-内容寻找、替换"><a href="#文件-内容寻找、替换" class="headerlink" title="文件/内容寻找、替换"></a>文件/内容寻找、替换</h2><ul>
+<li><code>grep -r &quot;flag&quot; *</code> #当前目录</li>
+<li><p><code>grep -rln &#39;keyword&#39; /home</code></p>
+</li>
+<li><p><code>grep -rlP ^1cff /home</code>  按16进制搜索</p>
+</li>
+<li><p><code>find /home -name &#39;*keyword*&#39;</code>按文件名搜索 </p>
+</li>
+<li><p><code>sed -i &#39;s/astring/bstring/g&#39; path/to/file</code></p>
+</li>
+<li><code>sed -i &#39;s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.163.com/g&#39; /etc/apt/sources.list</code></li>
+<li><code>sed -i &#39;s/astring/bstring/g&#39; [grep -rl](反引号包裹</code>  替换子文件夹</li>
+</ul>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="备份数据库"><a href="#备份数据库" class="headerlink" title="备份数据库"></a>备份数据库</h3><ul>
+<li>mysqldump [-hhostname] -uusername -ppassword –databases databasename &gt; backupfile.sql</li>
+<li>mysqldump -u 用户名 -p 密码 数据库名 &gt; bak.sql</li>
+<li>mysqldump –all-databases &gt; bak.sql<h3 id="还原数据库"><a href="#还原数据库" class="headerlink" title="还原数据库"></a>还原数据库</h3></li>
+<li>mysql -u username -p [pass] databasename &lt; backupfile.sql</li>
+<li>mysql -u 用户名 -p 密码 数据库名 &lt; bak.sql</li>
+</ul>
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><ul>
+<li>打包文件<br><code>tar zcvf /tmp/www.tgz /var/www/html</code></li>
+<li>解压文件<br><code>tar zxvf /tmp/www.tgz -C /tmp/</code></li>
+</ul>
+<h2 id="cron"><a href="#cron" class="headerlink" title="cron"></a>cron</h2><p>提供crontab命令来设定cron服务的，以下是这个命令的一些参数与说明:</p>
+<ul>
+<li>crontab -u //设定某个用户的cron服务</li>
+<li>crontab -l //列出某个用户cron服务的详细内容</li>
+<li>crontab -r //删除没个用户的cron服务</li>
+<li>crontab -e //编辑某个用户的cron服务</li>
+</ul>
+<h2 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h2><ul>
+<li><code>netstat -antp</code></li>
+<li><code>netstat -ano</code> win</li>
+<li><code>netstat -ano|findstr &#39;port num&#39;</code> win</li>
+</ul>
+<h2 id="双网卡内外网路由"><a href="#双网卡内外网路由" class="headerlink" title="双网卡内外网路由"></a>双网卡内外网路由</h2><ul>
+<li>win    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">route ADD 202.1.0.100 MASK 255.255.255.255 172.16.7.1 if 12</span><br><span class="line">route ADD 192.168.74.10 MASK 255.255.255.0 192.168.75.254 if 15</span><br><span class="line">route ADD 10.10.0.0 MASK 255.255.0.0 172.16.3.254 if 15</span><br><span class="line">route delete 0.0.0.0</span><br><span class="line">route add 0.0.0.0 mask 0.0.0.0 192.168.43.1 if 5</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意接口配置</p>
+<ul>
+<li>mac<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netstat -rn    --查看路由表</span><br><span class="line">route get 0.0.0.0 --获取默认路由</span><br><span class="line">sudo route delete 0.0.0.0    --删除默认路由</span><br><span class="line">sudo route add -net 0.0.0.0 192.168.1.1    --添加公网网关</span><br><span class="line">sudo route add -net 166.0.0.0 166.6.66.254    --添加内网网关</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此外要在配置中调整默认路由网卡为优先<br><img src="http://ws1.sinaimg.cn/large/005CZNr7ly1g2gapvpd4vj30ny0mmq4z.jpg" alt></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>xmsec</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.xmsec.cc/2019/04/26/ctf-command-notes/" title="CTF运维命令手记">https://blog.xmsec.cc/2019/04/26/ctf-command-notes/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CTF/" rel="tag"># CTF</a>
+            
+              <a href="/tags/运维/" rel="tag"># 运维</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2016/09/10/blog-temporary-removed/" rel="next" title="博客已暂时转移">
+                  <i class="fa fa-chevron-left"></i> 博客已暂时转移
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/04/30/web-crypto/" rel="prev" title="Web中的密码学">
+                  Web中的密码学 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">2.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-compose"><span class="nav-number">3.</span> <span class="nav-text">docker compose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件-内容寻找、替换"><span class="nav-number">4.</span> <span class="nav-text">文件/内容寻找、替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">5.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#备份数据库"><span class="nav-number">5.1.</span> <span class="nav-text">备份数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#还原数据库"><span class="nav-number">5.2.</span> <span class="nav-text">还原数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tar"><span class="nav-number">6.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cron"><span class="nav-number">7.</span> <span class="nav-text">cron</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络连接"><span class="nav-number">8.</span> <span class="nav-text">网络连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双网卡内外网路由"><span class="nav-number">9.</span> <span class="nav-text">双网卡内外网路由</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xmsec</p>
+  <div class="site-description" itemprop="description">Stories and ideas we share. Security and Developing we focus.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xmsec</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'dmQXe8erVgB5djAltEoH1TBf-MdYXbMMI',
+    appKey: 'JfpRlyAfmqjkjkU5WdvM7uKH',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
