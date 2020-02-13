@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="xmsec - 陌小生">
 <meta property="og:description" content="bashiterm2 ohmyzsh https://www.jianshu.com/p/9c3439cc3bdb https://zhuanlan.zhihu.com/p/68876098 zsh plugin git/z/zsh-autosuggestions   bind key https://stackoverflow.com/questions/6205157/iterm-2-how-">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-10T07:48:47.874Z">
+<meta property="og:updated_time" content="2020-02-13T02:38:42.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="macos-collections">
 <meta name="twitter:description" content="bashiterm2 ohmyzsh https://www.jianshu.com/p/9c3439cc3bdb https://zhuanlan.zhihu.com/p/68876098 zsh plugin git/z/zsh-autosuggestions   bind key https://stackoverflow.com/questions/6205157/iterm-2-how-">
@@ -274,7 +274,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-10 15:48:47" itemprop="dateModified" datetime="2019-10-10T15:48:47+08:00">2019-10-10</time>
+                <time title="修改时间：2020-02-13 10:38:42" itemprop="dateModified" datetime="2020-02-13T10:38:42+08:00">2020-02-13</time>
               </span>
             
           
@@ -331,12 +331,10 @@
 </ul>
 <h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export &#123;http,https,ftp&#125;_proxy=&apos;http://127.0.0.1:1080&apos;</span><br><span class="line">export socks5_proxy=&apos;socks5://localhost:1080&apos;</span><br></pre></td></tr></table></figure>
 <p>or proxychains4</p>
-<h3 id="双网卡-route"><a href="#双网卡-route" class="headerlink" title="双网卡 route"></a>双网卡 route</h3><p><code>sudo route add -net 10.10.15.0 -netmask 255.255.255.0 10.10.15.255</code>  ip mask gateway 适用内网与外网网关不同时</p>
-<h2 id="brew"><a href="#brew" class="headerlink" title="brew"></a>brew</h2><h3 id="替换homebrew默认源"><a href="#替换homebrew默认源" class="headerlink" title="替换homebrew默认源"></a>替换homebrew默认源</h3><p>替换brew.git:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;</span><br><span class="line">git remote set-url origin https://mirrors.ustc.edu.cn/brew.git</span><br></pre></td></tr></table></figure></p>
-<p>替换homebrew-core.git:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</span><br><span class="line">git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br></pre></td></tr></table></figure></p>
+<h3 id="双网卡-route"><a href="#双网卡-route" class="headerlink" title="双网卡 route"></a>双网卡 route</h3><p><code>sudo route add -net 10.0.0.0 -netmask 255.0.0.0 172.29.7.254</code>  ip mask gateway 适用内网与外网网关不同时</p>
+<h2 id="brew"><a href="#brew" class="headerlink" title="brew"></a>brew</h2><h3 id="替换homebrew默认源"><a href="#替换homebrew默认源" class="headerlink" title="替换homebrew默认源"></a>替换homebrew默认源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git -C &quot;$(brew --repo)&quot; remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git</span><br><span class="line">git -C &quot;$(brew --repo homebrew/core)&quot; remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</span><br><span class="line">git -C &quot;$(brew --repo homebrew/cask)&quot; remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git</span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
 <p>如果替换源之后brew update 没反应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure></p>
-<p>切回官方源<br>重置brew.git:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;</span><br><span class="line">git remote set-url origin https://github.com/Homebrew/brew.git</span><br></pre></td></tr></table></figure></p>
-<p>重置homebrew-core.git:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</span><br><span class="line">git remote set-url origin https://github.com/Homebrew/homebrew-core.g</span><br></pre></td></tr></table></figure></p>
+<p>切回官方源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git -C &quot;$(brew --repo)&quot; remote set-url origin https://github.com/Homebrew/brew.git</span><br><span class="line">git -C &quot;$(brew --repo homebrew/core)&quot; remote set-url origin https://github.com/Homebrew/homebrew-core.git</span><br><span class="line">git -C &quot;$(brew --repo homebrew/cask)&quot; remote set-url origin https://github.com/Homebrew/homebrew-cask.git</span><br><span class="line">brew update</span><br></pre></td></tr></table></figure></p>
 <h3 id="替换Homebrew-Bottles源"><a href="#替换Homebrew-Bottles源" class="headerlink" title="替换Homebrew Bottles源"></a>替换Homebrew Bottles源</h3><p>Homebrew Bottles是Homebrew提供的二进制代码包，目前镜像站收录了以下仓库：</p>
 <p>对于bash用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.bash_profile</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
 <p>对于zsh用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure></p>
@@ -457,12 +455,12 @@
 <li>Scroll reverser 鼠标滚轮反转</li>
 <li>PDF element PRO</li>
 <li>fine reader ocr @Appstore</li>
-<li>magnet (窗口管理)</li>
 <li><a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a> 图片上传客户端</li>
 <li>dozer <code>brew cask install dozer</code> 状态菜单图标隐藏</li>
 <li>LunarCal 日历 @Appstore</li>
-<li>expression @Appstore</li>
-<li>Permute3  转换 @Appstore</li>
+<li>expression 正则测试 @Appstore</li>
+<li>Permute3  音视频转换 @Appstore</li>
+<li>自动切换输入法 @Appstore 免费</li>
 </ul>
 <h3 id="Visual"><a href="#Visual" class="headerlink" title="Visual"></a>Visual</h3><ul>
 <li>PD/VMFUSION <a href="https://www.vmware.com/go/getfusion" target="_blank" rel="noopener">https://www.vmware.com/go/getfusion</a></li>
@@ -486,7 +484,8 @@
 <h3 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h3><ul>
 <li>timemachine<ul>
 <li>可分区，希捷移动硬盘 （ NTFS 管理)</li>
-<li><a href="https://support.apple.com/zh-cn/HT203981" target="_blank" rel="noopener">https://support.apple.com/zh-cn/HT203981</a></li>
+<li><a href="https://www.jianshu.com/p/5f8b4d9a8922" target="_blank" rel="noopener">https://www.jianshu.com/p/5f8b4d9a8922</a> 分区</li>
+<li><a href="https://support.apple.com/zh-cn/HT203981" target="_blank" rel="noopener">https://support.apple.com/zh-cn/HT203981</a> 恢复</li>
 </ul>
 </li>
 <li>坚果云</li>
@@ -637,7 +636,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -676,7 +675,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

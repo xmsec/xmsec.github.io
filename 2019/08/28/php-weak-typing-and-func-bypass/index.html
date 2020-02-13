@@ -56,20 +56,20 @@
   };
 </script>
 
-  <meta name="description" content="弱类型先看下强类型和弱类型的区别。 强类型指的是每个变量和对象都必须具有声明类型，是在编译的时候就确定类型的数据，在执行时类型不能更改，代表语言如Java、C等；而弱类型在执行的时候才会确定类型， 代表语言如PHP、Python等。 强类型较安全，而且效率高；弱类型相比而言不安全 。 ==和======在进行比较的时候，会先判断两个变量的类型是否相等，再比较；==在进行比较的时候，会先将变量类型转">
+  <meta name="description" content="弱类型先看下强类型和弱类型的区别。 强类型指的是每个变量和对象都必须具有声明类型，是在编译的时候就确定类型的数据，在执行时类型不能更改，代表语言如Java、C等；而弱类型在执行的时候才会确定类型， 代表语言如PHP、Python等。 强类型较安全，而且效率高；弱类型相比而言不安全。 ==和======在进行比较的时候，会先判断两个变量的类型是否相等，再比较；==在进行比较的时候，会先将变量类型转化">
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php 弱类型和函数小结">
 <meta property="og:url" content="https://blog.xmsec.cc/2019/08/28/php-weak-typing-and-func-bypass/index.html">
 <meta property="og:site_name" content="xmsec - 陌小生">
-<meta property="og:description" content="弱类型先看下强类型和弱类型的区别。 强类型指的是每个变量和对象都必须具有声明类型，是在编译的时候就确定类型的数据，在执行时类型不能更改，代表语言如Java、C等；而弱类型在执行的时候才会确定类型， 代表语言如PHP、Python等。 强类型较安全，而且效率高；弱类型相比而言不安全 。 ==和======在进行比较的时候，会先判断两个变量的类型是否相等，再比较；==在进行比较的时候，会先将变量类型转">
+<meta property="og:description" content="弱类型先看下强类型和弱类型的区别。 强类型指的是每个变量和对象都必须具有声明类型，是在编译的时候就确定类型的数据，在执行时类型不能更改，代表语言如Java、C等；而弱类型在执行的时候才会确定类型， 代表语言如PHP、Python等。 强类型较安全，而且效率高；弱类型相比而言不安全。 ==和======在进行比较的时候，会先判断两个变量的类型是否相等，再比较；==在进行比较的时候，会先将变量类型转化">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/08/28/TJzA1XmHoi2n8wL.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/28/zxcmTaFZXGu7twi.png">
-<meta property="og:updated_time" content="2019-08-28T15:30:16.000Z">
+<meta property="og:updated_time" content="2019-10-25T04:57:49.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php 弱类型和函数小结">
-<meta name="twitter:description" content="弱类型先看下强类型和弱类型的区别。 强类型指的是每个变量和对象都必须具有声明类型，是在编译的时候就确定类型的数据，在执行时类型不能更改，代表语言如Java、C等；而弱类型在执行的时候才会确定类型， 代表语言如PHP、Python等。 强类型较安全，而且效率高；弱类型相比而言不安全 。 ==和======在进行比较的时候，会先判断两个变量的类型是否相等，再比较；==在进行比较的时候，会先将变量类型转">
+<meta name="twitter:description" content="弱类型先看下强类型和弱类型的区别。 强类型指的是每个变量和对象都必须具有声明类型，是在编译的时候就确定类型的数据，在执行时类型不能更改，代表语言如Java、C等；而弱类型在执行的时候才会确定类型， 代表语言如PHP、Python等。 强类型较安全，而且效率高；弱类型相比而言不安全。 ==和======在进行比较的时候，会先判断两个变量的类型是否相等，再比较；==在进行比较的时候，会先将变量类型转化">
 <meta name="twitter:image" content="https://i.loli.net/2019/08/28/TJzA1XmHoi2n8wL.png">
   <link rel="canonical" href="https://blog.xmsec.cc/2019/08/28/php-weak-typing-and-func-bypass/">
 
@@ -266,11 +266,19 @@
                 
               
 
-              <time title="创建时间：2019-08-28 22:56:51 / 修改时间：23:30:16" itemprop="dateCreated datePublished" datetime="2019-08-28T22:56:51+08:00">2019-08-28</time>
+              <time title="创建时间：2019-08-28 22:56:51" itemprop="dateCreated datePublished" datetime="2019-08-28T22:56:51+08:00">2019-08-28</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-25 12:57:49" itemprop="dateModified" datetime="2019-10-25T12:57:49+08:00">2019-10-25</time>
+              </span>
             
           
 
@@ -309,7 +317,7 @@
       
         <h2 id="弱类型"><a href="#弱类型" class="headerlink" title="弱类型"></a>弱类型</h2><p>先看下强类型和弱类型的区别。</p>
 <p>强类型指的是每个变量和对象都必须具有声明类型，是在编译的时候就确定类型的数据，在执行时类型不能更改，代表语言如Java、C等；而弱类型在执行的时候才会确定类型， 代表语言如PHP、Python等。</p>
-<p>强类型较安全，而且效率高；弱类型相比而言不安全 。</p>
+<p>强类型较安全，而且效率高；弱类型相比而言不安全。</p>
 <h3 id="和"><a href="#和" class="headerlink" title="==和==="></a>==和===</h3><p>===在进行比较的时候，会先判断两个变量的类型是否相等，再比较；<br>==在进行比较的时候，会先将变量类型转化成相同，再比较。也就是说，相比之前，==并不会去比较两个变量的类型是否相等。</p>
 <p>除此之外，还有!=和!==，原理和前面一样。</p>
 <p>如果比较一个数字和字符串或者比较涉及到数字内容的字符串，则字符串会被转换成数值并且比较按照数值来进行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">var_dump(&quot;admin&quot;==0);  //true</span><br><span class="line">var_dump(&quot;1admin&quot;==1); //true</span><br><span class="line">var_dump(&quot;admin1&quot;==1); //false</span><br><span class="line">var_dump(&quot;admin1&quot;==0); //true</span><br><span class="line">var_dump(&quot;0e123456&quot;==&quot;0e4456789&quot;); //true </span><br><span class="line">var_dump(&quot;0x123&quot; == &quot;291&quot;); //true </span><br><span class="line">var_dump(is_numeric(&quot;0x123&quot;));  //true </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
@@ -388,6 +396,10 @@
 
             <div class="post-nav-prev post-nav-item">
               
+                <a href="/2019/10/25/php-bypass-disable-func/" rel="prev" title="bypass php disable_functions">
+                  bypass php disable_functions <i class="fa fa-chevron-right"></i>
+                </a>
+              
             </div>
           </div>
         
@@ -453,7 +465,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -492,7 +504,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
